@@ -1,4 +1,4 @@
-<h1>รายการพัสดุ</h1>
+<h1>หน่วยนับ</h1>
 
 <!-- link to add new users page -->
 <div class='upper-right-opt'>
@@ -8,40 +8,29 @@
 <table style='padding:5px;' class="table">
 	<!-- table heading -->
 	<tr style='background-color:#fff;'>
-		<th>รหัสพัสดุ</th>
-		<th>รายการ</th>
-		<th>ราคา</th>
-		<th>หน่วย</th>
-		<th>Email</th>
-		<th>จัดการรายการ</th>
+		<th>รหัส</th>
+		<th>หน่วยนับ</th>
 	</tr>
 	
 <?php
-
-	
 	//loop to show all retrieved records
-	foreach( $users as $user ){
+	foreach( $uoms as $uom ){
 	
 		echo "<tr>";
-			echo "<td>{$user['User']['id']}</td>";
-			echo "<td>{$user['User']['firstname']}</td>";
-			echo "<td>{$user['User']['lastname']}</td>";
-			echo "<td>{$user['User']['username']}</td>";
-			echo "<td>{$user['User']['email']}</td>";
-			
+			echo "<td>{$uom['Uom']['uom_id']}</td>";
+			echo "<td>{$uom['Uom']['uom_name']}</td>";			
 			//here are the links to edit and delete actions
 			echo "<td class='actions'>";
-				echo $this->Html->link( 'แก้ไข', array('action' => 'edit', $user['User']['id']) );
+				echo $this->Html->link( 'แก้ไข', array('action' => 'edit', $uom['Uom']['uom_id']) );
 				
 				//in cakephp 2.0, we won't use get request for deleting records
 				//we use post request (for security purposes)
 				echo $this->Form->postLink( 'ลบ', array(
-						'action' => 'delete', 
-						$user['User']['id']), array(
+						'action' => 'delete',
+						$uom['Uom']['uom_id']), array(
 							'confirm'=>'Are you sure you want to delete that user?' ) );
 			echo "</td>";
 		echo "</tr>";
 	}
 ?>
-	
 </table>
