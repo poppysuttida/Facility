@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /**
  *
  * Generic CSS for CakePHP
@@ -742,3 +742,7 @@ pre {
 #url-rewriting-warning {
 	display:none;
 }
+ .menu .menu-item {
+    display: table-cell;
+}
+

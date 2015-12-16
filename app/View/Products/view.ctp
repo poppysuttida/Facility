@@ -1,20 +1,33 @@
-<h1>รายการพัสดุ</h1>
+<div>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation">
+      <?php echo $this->Html->link( 'หน้าแรก', array('controller'=>'pages','action' => 'home' )); ?></li>
+    <li role="presentation" class="active">
+      <?php echo $this->Html->link( 'พัสดุ', array('controller'=>'Products','action' => 'view' )); ?></li>
+  </ul>
+</div>
+<div class="row">
+  <div class="col-xs-6 col-md-1"></div>
+  <div class="col-xs-6 col-md-10">
+    <H2><?php echo __('รายการพัสดุ');?></H2>
 
 <!-- link to add new users page -->
-<div class='upper-right-opt'>
-	<?php echo $this->Html->link( '+ สร้างรายการ', array( 'action' => 'add' ) ); ?>
-</div>
+<div align = "right">
+    <?php echo $this->Html->link( 'สร้างรายการ', array( 'action' => 'add' ) , array(
+                        'class' => 'btn btn-success' )); ?>
+    </div> <br>
+<table class="table table-condensed">
+    <!-- table heading -->
+    <tr>
+        <th><?php echo __('รหัส');?></th>
+        <th><?php echo __('รายการ');?></th>
+        <th><?php echo __('ราคา');?></th>
+        <th><?php echo __('หน่วย');?></th>
+        <th><?php echo __('คลังพัสดุ');?></th>
+        <th><?php echo __('จัดการ');?></th>
+    </tr>
 
-<table style='padding:5px;' class="table">
-	<!-- table heading -->
-	<tr style='background-color:#fff;'>
-		<th>รหัสพัสดุ</th>
-		<th>รายการ</th>
-		<th>ราคา</th>
-		<th>หน่วย</th>
-		<th>คลังพัสดุ</th>
-		<th>จัดการรายการ</th>
-	</tr>
    <tbody>
             <?php 
                 if(isset($result)):
@@ -25,10 +38,16 @@
                     <td class="left"><?php echo $value['Product']['product_price']; ?></td>
                     <td class="left"><?php echo $value['Uom']['uom_name']; ?></td>
                     <td class="left"><?php echo $value['Facility']['facility_name']; ?></td>
-                    <td class='center'><?php echo $this->Html->link( 'แก้ไข', array('action' => 'edit', $value['Product']['product_id']) );?>
-
-                    	<?php echo $this->Form->postLink( 'ลบ', array('action' => 'delete',
-						$value['Product']['product_id']), array('confirm'=>'Are you sure you want to delete that user?' ) );?></td>
+                     <td class='actions'>
+                    <?php echo $this->Html->link( 'แก้ไข', array('action' => 'edit', 
+                     $value['Product']['product_id']), array(
+                        'class' => 'btn btn-info' )); ?>
+                
+                    <?php echo $this->Form->postLink( 'ลบ', array('action' => 'delete', 
+                     $value['Product']['product_id']), array(
+                            'confirm'=>'Are you sure you want to delete that Product?' ,
+                            'class' => 'btn btn-info' )); ?>
+            </td>
                 </tr>
             	<?php
                     endforeach;
@@ -36,3 +55,6 @@
                 ?>
             </tbody>
             </table>
+      <div class="col-xs-6 col-md-1"></div>
+  </div>
+</div>

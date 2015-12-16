@@ -2,9 +2,46 @@
 class FacilitysController extends AppController {
 
 	public $name = 'Facilitys';
+	public $uses = array('Facility');
+	public $components = array('Paginator');
 	public function view() {
 		//to retrieve all users, need just one line
 		$this->set('facilitys', $this->Facility->find('all'));
+
+		$conditions = array();
+
+        if (!empty($this->params->query)) {
+            // ==== Filter condition section ====
+            $allow = array('facility_name');
+            foreach ($this->params->query as $field => $keyword) {
+                if (empty($keyword)) {
+                    continue;
+                }
+                if (in_array($field, $allow)) {
+                    $conditions['AND'][$field . ' LIKE'] = '%' . $keyword . '%';
+                }
+            }
+
+            // ==== Search condition section ====
+            if (!empty($this->params->query['the_keyword'])) {
+                $is_keyword = $this->params->query['the_keyword'];
+                $keyword_field = array('facility_name');
+                foreach ($keyword_field AS $value) {
+                    $conditions['OR'][$value . ' LIKE'] = '%' . $is_keyword . '%';
+                }
+            }
+        }
+
+        $this->Paginator->settings = array(
+            'Facility' => array(
+                'limit' => 20,
+                'order' => array('FACILITY_NAME' => 'DESC'),
+                'recursive' => 0
+                )
+        );
+
+        $result = $this->Paginator->paginate('Facility', $conditions);
+        $this->set(compact('result'));
 	}
 	
 	public function add(){
