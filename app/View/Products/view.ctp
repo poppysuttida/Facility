@@ -17,7 +17,7 @@
     <?php echo $this->Html->link( 'สร้างรายการ', array( 'action' => 'add' ) , array(
                         'class' => 'btn btn-success' )); ?>
     </div> <br>
-<table class="table table-condensed">
+<table class="table table-bordered table-striped">
     <!-- table heading -->
     <tr>
         <th><?php echo __('รหัส');?></th>

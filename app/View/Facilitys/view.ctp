@@ -24,7 +24,7 @@
         	<?php echo __('ชื่อคลังพัสดุ'); ?>
     	</div>
 		<div class="col-sm-3">
-			<?php echo $this->Form->input('facility_name', array('label' => false, 'div' => false,'class' => 'form-control', 
+			<?php echo $this->Form->input('facility_name', array('label' => false, 'div' => false,'class' => 'nav-search-input', 
                     'type' => 'text',
                     'value' => isset($this->params->query['facility_name'])?
                     $this->params->query['facility_name']: '')); ?>
@@ -37,7 +37,7 @@
 						'class' => 'btn btn-success' )); ?>
 	</div> <br>
 
-<table class="table table-condensed">
+<table class="table table-bordered table-striped">
 	<!-- table heading -->
 	<tr>
 		<th><?php echo __('รหัส');?></th>
@@ -54,15 +54,34 @@
 			 <td><?php echo $facility['Facility']['facility_name']?></td>			
 			 <!-- here are the links to edit and delete actions -->
 			 <td class='actions'>
-				<?php echo $this->Html->link( 'แก้ไข', array('action' => 'edit', 
+				<?php echo $this->Html->link( '', array('action' => 'edit', 
 					$facility['Facility']['facility_id']), array(
-						'class' => 'btn btn-info' )); ?>
-				
+						'class' => 'ace-icon fa fa-pencil bigger-130' )); ?>
+
+				<!--<?php echo $this->Html->link($this->Html->tag('span', '', 
+				array('class' => 'vbar')),
+				array('controller'=>'facilitys',
+				'action'=>'edit',$facility['Facility']['facility_id']), 
+				array('class'=>'ace-icon fa fa-pencil bigger-130'));  ?>-->
+
 				<!-- in cakephp 2.0, we won't use get request for deleting records -->
 				<!-- we use post request (for security purposes) -->
-				<?php echo $this->Form->postLink( 'ลบ', array('action' => 'delete', 
-						$facility['Facility']['facility_id']), array(
-							'confirm'=>'Are you sure you want to delete that Facility?' ,'class' => 'btn btn-info' )); ?>
+				<?php echo $this->Form->postLink( '', array('action' => 'delete', 
+					$facility['Facility']['facility_id']), array(
+						'confirm'=>'Are you sure you want to delete that Facility?' ,'class' => 'ace-icon fa fa-trash-o bigger-130' )); ?>
+		<div class="pull-right action-buttons">
+		<a href="#" class="blue">
+			<i class="ace-icon fa fa-pencil bigger-130"></i>
+		</a>
+
+		<span class="vbar"></span>
+
+		<a href="#" class="red">
+			<i class="ace-icon fa fa-trash-o bigger-130"></i>
+		</a>
+
+		<span class="vbar"></span>
+	</div>
 			</td>
 		</tr>
 		<?php } ?>
@@ -72,3 +91,15 @@
 	<div class="col-xs-6 col-md-1"></div>
 	</div>
 </div>
+<script type="text/javascript">
+    $("#search").fancybox({
+        'width': '85%',
+        'height': '250px',
+        'autoScale': false,
+        'autoSize': false,
+        'transitionIn': 'none',
+        'transitionOut': 'none',
+        'type': 'inline',
+        'scrolling': 'no'
+    });
+</script>
