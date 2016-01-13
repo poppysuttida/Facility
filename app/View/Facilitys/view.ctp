@@ -28,14 +28,18 @@
                     'type' => 'text',
                     'value' => isset($this->params->query['facility_name'])?
                     $this->params->query['facility_name']: '')); ?>
+            &nbsp;&nbsp;&nbsp;
+             <a href="<?php echo Router::url(array('controller'=>'Facilitys', 'action'=>'add')); ?>">
+            <?php echo $this->Html->image('icon-create.png', 
+            array('alt' => 'Facility')); ?> </a>
         </div>
 		</div>
-    </div>
+    </div><br><br>
 <!-- link to add new users page -->
-	<div align = "right">
+<!-- 	<div align = "right">
 	<?php echo $this->Html->link( 'สร้างรายการ', array( 'action' => 'add' ) , array(
 						'class' => 'btn btn-success' )); ?>
-	</div> <br>
+	</div> --> 
 
 <table class="table table-bordered table-striped">
 	<!-- table heading -->

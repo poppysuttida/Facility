@@ -1,38 +1,31 @@
 <?php
-class FacilitysController extends AppController {
+class FacilitylocationsController extends AppController {
 
-	public $name = 'Facilitys';
-	public $uses = array('Facility','Facilitylocation');
-
+	public $name = 'Facilitylocations';
 	public function view() {
 		//to retrieve all users, need just one line
-		$this->set('facilitys', $this->Facility->find('all'));
+		$this->set('facilitylocations', $this->Facilitylocation->find('all'));
 	}
-
+	
 	public function add(){
 	
-		$location_list = $this->Facilitylocation->find('list', array(
-            'fields' => array('Facilitylocation.location_id', 'Facilitylocation.location_name'),
-            'recursive' => -1
-        ));
 		//check if it is a post request
 		//this way, we won't have to do if(!empty($this->request->data))
 		if ($this->request->is('post')){
 			//save new user
-			if ($this->Facility->save($this->request->data)){
+			if ($this->Facilitylocation->save($this->request->data)){
 			
 				//set flash to user screen
-				$this->Session->setFlash('Facility was added.');
+				$this->Session->setFlash('Facilitylocation was added.');
 				//redirect to user list
 				$this->redirect(array('action' => 'view'));
 				
 			}else{
 				//if save failed
-				$this->Session->setFlash('Unable to add user. Please, try again.');
+				$this->Session->setFlash('Unable to add Facilitylocation. Please, try again.');
 				
 			}
 		}
-		$this->set(compact('location_list'));
 	}
 
 	public function edit() {
@@ -40,19 +33,14 @@ class FacilitysController extends AppController {
 		$id = $this->request->params['pass'][0];
 		
 		//set the user id
-		$this->Facility->id = $id;
-
-		$location_list = $this->Facilitylocation->find('list', array(
-            'fields' => array('Facilitylocation.location_id', 'Facilitylocation.location_name'),
-            'recursive' => -1
-        ));
+		$this->Facilitylocation->id = $id;
 		
 		//check if a user with this id really exists
-		if( $this->Facility->exists() ){
+		if( $this->Facilitylocation->exists() ){
 		
 			if( $this->request->is( 'post' ) || $this->request->is( 'put' ) ){
 				//save user
-				if( $this->Facility->save( $this->request->data ) ){
+				if( $this->Facilitylocation->save( $this->request->data ) ){
 				
 					//set to user's screen
 					$this->Session->setFlash('แก้ไขข้อมูลเรียบร้อยแล้ว');
@@ -68,7 +56,7 @@ class FacilitysController extends AppController {
 			
 				//we will read the user data
 				//so it will fill up our html form automatically
-				$this->request->data = $this->Facility->read();
+				$this->request->data = $this->Facilitylocation->read();
 			}
 			
 		}else{
@@ -81,7 +69,7 @@ class FacilitysController extends AppController {
 			//throw new NotFoundException('The user you are trying to edit does not exist.');
 		}
 		
-		$this->set(compact('location_list'));
+
 	}
 
 	public function delete() {
@@ -104,7 +92,7 @@ class FacilitysController extends AppController {
 				
 			}else{
 				//delete user
-				if( $this->Facility->delete( $id ) ){
+				if( $this->Facilitylocation->delete( $id ) ){
 					//set to screen
 					$this->Session->setFlash('ลบข้อมูลเรียบร้อยแล้ว');
 					//redirect to users's list

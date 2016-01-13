@@ -29,6 +29,17 @@
 			'class' => 'form-control', 
             'type' => 'text' )); ?>
         </div>
+         <div class="col-sm-4" align = "right">
+            <?php echo __('ที่ตั้ง'); ?>
+        </div>
+        <div class="col-sm-4">
+            <?php echo $this->Form->input('location_id', array('label' => false, 
+                'div' => false,
+                'type' => 'select', 
+                'class' => 
+                'form-control', 
+                'options' => $location_list));?>
+        </div>
         	<?php echo $this->Form->submit(__('แก้ไขรายการ'), array('class' => 'btn btn-info')); ?>
 		<div class="col-sm-4"></div>
 		</div>

@@ -4,6 +4,12 @@ class Facility extends AppModel {
     public $useTable = 'FACILITY';
     public $primaryKey = 'facility_id';
     public $displayField = 'name';
+      public $belongsTo = array(
+        'Facilitylocation' => array(
+            'className' => 'Facilitylocation',
+            'foreignKey' =>'location_id'
+        )
+    );
 	
 
 	public $validate = array(

@@ -8,7 +8,7 @@ class ProductsController extends AppController {
 		$conditions = array();
         // find all facility
         $list_product = $this->Product->find('all', array(
-            'fields' => array('Product.product_id', 'Product.product_name', 'Product.product_price', 'Product.uom_uom_id', 'Product.facility_facility_id'),
+            'fields' => array('Product.product_id', 'Product.product_name', 'Product.uom_id', 'Product.facility_id'),
             'recursive' => 0
         ));
         if (!isset($list_product)) {

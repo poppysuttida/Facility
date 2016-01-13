@@ -8,15 +8,15 @@
       'action' => 'view' )); ?>
     </li>
     <li role="presentation" class="active">
-      <?php echo $this->Html->link( 'สร้างรายการพัสดุ', array('controller'=>'Products',
-      'action' => 'add' )); ?>
+      <?php echo $this->Html->link( 'แก้ไขรายการพัสดุ', array('controller'=>'Products',
+      'action' => 'edit' )); ?>
     </li>
   </ul>
 </div>
 <div class="row">
   <div class="col-xs-6 col-md-1"></div>
   <div class="col-xs-6 col-md-10">
-<H2><?php echo __('เพิ่มรายการพัสดุ');?></H2>
+<H2><?php echo __('แก้ไขรายการพัสดุ');?></H2>
 <br>
 <!--this is our add form, name the fields same as database column names -->
 <?php echo $this->Form->create('Product');?>
@@ -59,7 +59,7 @@
                 'type' => 'select', 
                 'class' => 
                 'form-control', 
-                'options' => $location_list));?>
+                'options' => $uom_list));?>
         </div>
         <div class="col-sm-4">
         <?php echo $this->Html->link( 'เพิ่มหน่วยนับ', array('controller'=>'Uoms',
@@ -87,7 +87,7 @@
         <div class="col-md-12">
         <div class="col-sm-4"></div>
         <div class="col-sm-4" align = "center">
-        <?php echo $this->Form->submit(__('เพิ่มรายการ'), array('class' => 'btn btn-info')); ?> 
+        <?php echo $this->Form->submit(__('แก้ไขรายการ'), array('class' => 'btn btn-info')); ?> 
         </div>
         <div class="col-sm-4"></div>
         </div>
