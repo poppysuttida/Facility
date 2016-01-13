@@ -22,7 +22,6 @@
     <tr>
         <th><?php echo __('รหัส');?></th>
         <th><?php echo __('รายการ');?></th>
-        <th><?php echo __('ราคา');?></th>
         <th><?php echo __('หน่วย');?></th>
         <th><?php echo __('คลังพัสดุ');?></th>
         <th><?php echo __('จัดการ');?></th>
@@ -35,7 +34,6 @@
                 <tr>
                     <td class="center"><?php echo $value['Product']['product_id']; ?></td>
                     <td class="left"><?php echo $value['Product']['product_name']; ?></td>
-                    <td class="left"><?php echo $value['Product']['product_price']; ?></td>
                     <td class="left"><?php echo $value['Uom']['uom_name']; ?></td>
                     <td class="left"><?php echo $value['Facility']['facility_name']; ?></td>
                      <td class='actions'>

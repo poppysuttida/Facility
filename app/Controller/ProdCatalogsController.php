@@ -1,12 +1,12 @@
 <?php
-class FacilitysController extends AppController {
+class ProdCatalogsController extends AppController {
 
-	public $name = 'Facilitys';
-	public $uses = array('Facility');
+	public $name = 'ProdCatalogs';
+	public $uses = array('ProdCatalog');
 
 	public function view() {
 		//to retrieve all users, need just one line
-		$this->set('facilitys', $this->Facility->find('all'));
+		$this->set('prodcatalogs', $this->ProdCatalog->find('all'));
 	}
 
 	public function add(){
@@ -14,11 +14,13 @@ class FacilitysController extends AppController {
 		//check if it is a post request
 		//this way, we won't have to do if(!empty($this->request->data))
 		if ($this->request->is('post')){
+			$this->request->data['ProdCatalog']['cat'] = $this->request->data['ProdCatalog']['product_catalog_name'];
+			//debug($this->request->data); exit;
 			//save new user
-			if ($this->Facility->save($this->request->data)){
+			if ($this->ProdCatalog->save($this->request->data)){
 			
 				//set flash to user screen
-				$this->Session->setFlash('Facility was added.');
+				$this->Session->setFlash('ProdCatalog was added.');
 				//redirect to user list
 				$this->redirect(array('action' => 'view'));
 				
@@ -35,14 +37,14 @@ class FacilitysController extends AppController {
 		$id = $this->request->params['pass'][0];
 		
 		//set the user id
-		$this->Facility->id = $id;
+		$this->ProdCatalog->id = $id;
 		
 		//check if a user with this id really exists
-		if( $this->Facility->exists() ){
+		if( $this->ProdCatalog->exists() ){
 		
 			if( $this->request->is( 'post' ) || $this->request->is( 'put' ) ){
 				//save user
-				if( $this->Facility->save( $this->request->data ) ){
+				if( $this->ProdCatalog->save( $this->request->data ) ){
 				
 					//set to user's screen
 					$this->Session->setFlash('แก้ไขข้อมูลเรียบร้อยแล้ว');
@@ -58,7 +60,7 @@ class FacilitysController extends AppController {
 			
 				//we will read the user data
 				//so it will fill up our html form automatically
-				$this->request->data = $this->Facility->read();
+				$this->request->data = $this->ProdCatalog->read();
 			}
 			
 		}else{
@@ -94,7 +96,7 @@ class FacilitysController extends AppController {
 				
 			}else{
 				//delete user
-				if( $this->Facility->delete( $id ) ){
+				if( $this->ProdCatalog->delete( $id ) ){
 					//set to screen
 					$this->Session->setFlash('ลบข้อมูลเรียบร้อยแล้ว');
 					//redirect to users's list

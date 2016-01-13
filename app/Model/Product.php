@@ -6,11 +6,11 @@ class Product extends AppModel {
     public $belongsTo = array(
         'Facility' => array(
             'className' => 'Facility',
-            'foreignKey' =>'facility_facility_id'
+            'foreignKey' =>'facility_id'
         ),
         'Uom' => array(
             'className' => 'Uom',
-            'foreignKey' => 'uom_uom_id'
+            'foreignKey' => 'uom_id'
         )
     );
  

@@ -5,7 +5,8 @@
       <?php echo $this->Html->link( 'หน้าแรก', array('controller'=>'pages','action' => 'home' 
       )); ?></li>
     <li role="presentation" class="active">
-      <?php echo $this->Html->link( 'คลังพัสดุ', array('controller'=>'Facilitys','action' => 'view' 
+      <?php echo $this->Html->link( 'ชนิดพัสดุ', array('controller'=>'ProdCatalogs','
+      	action' => 'view' 
       )); ?>
     </li>
   </ul>
@@ -13,23 +14,23 @@
 <div class="row">
   <div class="col-xs-6 col-md-1"></div>
   <div class="col-xs-6 col-md-10">
-	<H2><?php echo __('รายการคลังพัสดุ');?></H2>
+	<H2><?php echo __('รายการชนิดพัสดุ');?></H2>
 	<div class="form-group" id="searchform">
         <div class="col-md-12">
         <div class="col-sm-9" align = "right">
-        	<?php echo $this->Form->create('Facility', array('name' => 'FindFacility', 
-        'type' => 'get', 'url' => array('controller' => 'Facilitys', 
+        	<?php echo $this->Form->create('ProdCatalog', array('name' => 'FindProdCatalog', 
+        'type' => 'get', 'url' => array('controller' => 'ProdCatalogs', 
         'action' => 'view'), 'class' => 'form-horizontal')); ?>
         	<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-        	<?php echo __('ชื่อคลังพัสดุ'); ?>
+        	<?php echo __('ชื่อชนิดพัสดุ'); ?>
     	</div>
 		<div class="col-sm-3">
-			<?php echo $this->Form->input('facility_name', array('label' => false, 'div' => false,'class' => 'nav-search-input', 
+			<?php echo $this->Form->input('product_catalog_name', array('label' => false, 'div' => false,'class' => 'nav-search-input', 
                     'type' => 'text',
-                    'value' => isset($this->params->query['facility_name'])?
-                    $this->params->query['facility_name']: '')); ?>
+                    'value' => isset($this->params->query['product_catalog_name'])?
+                    $this->params->query['product_catalog_name']: '')); ?>
             &nbsp;&nbsp;&nbsp;
-             <a href="<?php echo Router::url(array('controller'=>'Facilitys', 'action'=>'add')); ?>">
+             <a href="<?php echo Router::url(array('controller'=>'ProdCatalogs', 'action'=>'add')); ?>">
             <?php echo $this->Html->image('icon-create.png', 
             array('alt' => 'Facility')); ?> </a>
         </div>
@@ -51,29 +52,22 @@
 	<tbody>
 <?php
 	//loop to show all retrieved records
-	foreach( $facilitys as $facility ){
+	foreach( $prodcatalogs as $prodcatalog ){
 	?>
 		<tr>
-			 <td><?php echo $facility['Facility']['facility_id']?></td>
-			 <td><?php echo $facility['Facility']['facility_name']?></td>			
+			 <td><?php echo $prodcatalog['ProdCatalog']['product_catalog_id']?></td>
+			 <td><?php echo $prodcatalog['ProdCatalog']['product_catalog_name']?></td>			
 			 <!-- here are the links to edit and delete actions -->
 			 <td class='actions'>
-				<?php echo $this->Html->link( '', array('action' => 'edit', 
-					$facility['Facility']['facility_id']), array(
-						'class' => 'ace-icon fa fa-pencil bigger-130' )); ?>
-
-				<!--<?php echo $this->Html->link($this->Html->tag('span', '', 
-				array('class' => 'vbar')),
-				array('controller'=>'facilitys',
-				'action'=>'edit',$facility['Facility']['facility_id']), 
-				array('class'=>'ace-icon fa fa-pencil bigger-130'));  ?>-->
-
-				<!-- in cakephp 2.0, we won't use get request for deleting records -->
-				<!-- we use post request (for security purposes) -->
-				<?php echo $this->Form->postLink( '', array('action' => 'delete', 
-					$facility['Facility']['facility_id']), array(
-						'confirm'=>'Are you sure you want to delete that Facility?' ,'class' => 'ace-icon fa fa-trash-o bigger-130' )); ?>
-			</td>
+                    <?php echo $this->Html->link( 'แก้ไข', array('action' => 'edit', 
+                     $prodcatalog['ProdCatalog']['product_catalog_id']), array(
+                        'class' => 'btn btn-info' )); ?>
+                
+                    <?php echo $this->Form->postLink( 'ลบ', array('action' => 'delete', 
+                     $prodcatalog['ProdCatalog']['product_catalog_id']), array(
+                            'confirm'=>'Are you sure you want to delete that ProdCatalog?' ,
+                            'class' => 'btn btn-info' )); ?>
+            </td>
 		</tr>
 		<?php } ?>
 	</tbody>

@@ -37,20 +37,6 @@
     <div class="form-group">
         <div class="col-md-12">
         <div class="col-sm-4" align = "right">
-            <?php echo __('ราคา'); ?>
-        </div>
-        <div class="col-sm-4">
-            <?php echo $this->Form->input('product_price', array('label' => false, 
-                'div' => false,
-                'type' => 'text', 
-                'class' => 'form-control'));?> 
-        </div>
-        <div class="col-sm-4"></div>
-        </div>
-    </div><br>
-    <div class="form-group">
-        <div class="col-md-12">
-        <div class="col-sm-4" align = "right">
             <?php echo __('หน่วยนับ'); ?>
         </div>
         <div class="col-sm-4">
