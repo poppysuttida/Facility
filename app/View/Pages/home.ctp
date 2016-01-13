@@ -35,12 +35,12 @@
 	</div>
 	<div class="col-md-2">
 		<div align = "center">
-				<a href="<?php echo Router::url(array('controller'=>'ProdCatalogs', 
+				<a href="<?php echo Router::url(array('controller'=>'InventoryItems', 
 				'action'=>'view')); ?>">
 					<?php echo $this->Html->image('icon-4.png', array('alt' => 
-					'ProductCatalog')); ?>
-					<div class="menu-title">ProductCatalog</div>
-					<div class="menu-sub-title-nowrap">ชนิดพัสดุ</div>
+					'InventoryItem')); ?>
+					<div class="menu-title">InventoryItem</div>
+					<div class="menu-sub-title-nowrap">สินค้านำเข้า</div>
 					<div class="hover"></div>
 				</a>
 		</div>

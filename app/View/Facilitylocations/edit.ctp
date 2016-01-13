@@ -28,7 +28,7 @@
 	<div class="form-group">
         <div class="col-md-12">
         <div class="col-sm-4" align = "right">
-        	<?php echo __('ชื่อที่ตั้งคลังพัสดุ'); ?>
+        	<b><?php echo __('ชื่อที่ตั้งคลังพัสดุ'); ?></b>
     	</div>
 			<?php echo $this->Form->create('Facilitylocation'); ?>
 		<div class="col-sm-4">

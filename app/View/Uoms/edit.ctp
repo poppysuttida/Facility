@@ -28,7 +28,7 @@
 	<div class="form-group">
         <div class="col-md-12">
         <div class="col-sm-4" align = "right">
-        	<?php echo __('ชื่อหน่วยนับ'); ?>
+        	<b><?php echo __('ชื่อหน่วยนับ'); ?></b>
     	</div>
 			<?php echo $this->Form->create('Uom'); ?>
 		<div class="col-sm-4">

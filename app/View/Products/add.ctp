@@ -33,26 +33,26 @@
         </div>
         <div class="col-sm-4"></div>
         </div>
-    </div><br>
+    </div><br><br><br>
     <div class="form-group">
         <div class="col-md-12">
         <div class="col-sm-4" align = "right">
             <?php echo __('หน่วยนับ'); ?>
         </div>
         <div class="col-sm-4">
-            <?php echo $this->Form->input('uom_uom_id', array('label' => false, 
+            <?php echo $this->Form->input('uom_id', array('label' => false, 
                 'div' => false,
                 'type' => 'select', 
                 'class' => 
                 'form-control', 
-                'options' => $location_list));?>
+                'options' => $uom_list));?>
         </div>
         <div class="col-sm-4">
         <?php echo $this->Html->link( 'เพิ่มหน่วยนับ', array('controller'=>'Uoms',
         'action' => 'add' )); ?>
         </div>
         </div>
-    </div><br>
+    </div><br><br>
     <div class="form-group">
         <div class="col-md-12">
         <div class="col-sm-4" align = "right">
@@ -68,7 +68,7 @@
         </div>
         <div class="col-sm-4"></div>
         </div>
-    </div><br>
+    </div><br><br>
     <div class="form-group">
         <div class="col-md-12">
         <div class="col-sm-4"></div>

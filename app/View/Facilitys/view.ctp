@@ -14,7 +14,7 @@
   <div class="col-xs-6 col-md-1"></div>
   <div class="col-xs-6 col-md-10">
 	<H2><?php echo __('รายการคลังพัสดุ');?></H2>
-	<div class="form-group" id="searchform">
+	<!-- <div class="form-group" id="searchform">
         <div class="col-md-12">
         <div class="col-sm-9" align = "right">
         	<?php echo $this->Form->create('Facility', array('name' => 'FindFacility', 
@@ -28,18 +28,14 @@
                     'type' => 'text',
                     'value' => isset($this->params->query['facility_name'])?
                     $this->params->query['facility_name']: '')); ?>
-            &nbsp;&nbsp;&nbsp;
-             <a href="<?php echo Router::url(array('controller'=>'Facilitys', 'action'=>'add')); ?>">
-            <?php echo $this->Html->image('icon-create.png', 
-            array('alt' => 'Facility')); ?> </a>
         </div>
 		</div>
-    </div><br><br>
+    </div><br><br> -->
 <!-- link to add new users page -->
-<!-- 	<div align = "right">
+<div align = "right">
 	<?php echo $this->Html->link( 'สร้างรายการ', array( 'action' => 'add' ) , array(
 						'class' => 'btn btn-success' )); ?>
-	</div> --> 
+	</div> <br>
 
 <table class="table table-bordered table-striped">
 	<!-- table heading -->
@@ -57,23 +53,16 @@
 			 <td><?php echo $facility['Facility']['facility_id']?></td>
 			 <td><?php echo $facility['Facility']['facility_name']?></td>			
 			 <!-- here are the links to edit and delete actions -->
-			 <td class='actions'>
-				<?php echo $this->Html->link( '', array('action' => 'edit', 
-					$facility['Facility']['facility_id']), array(
-						'class' => 'ace-icon fa fa-pencil bigger-130' )); ?>
-
-				<!--<?php echo $this->Html->link($this->Html->tag('span', '', 
-				array('class' => 'vbar')),
-				array('controller'=>'facilitys',
-				'action'=>'edit',$facility['Facility']['facility_id']), 
-				array('class'=>'ace-icon fa fa-pencil bigger-130'));  ?>-->
-
-				<!-- in cakephp 2.0, we won't use get request for deleting records -->
-				<!-- we use post request (for security purposes) -->
-				<?php echo $this->Form->postLink( '', array('action' => 'delete', 
-					$facility['Facility']['facility_id']), array(
-						'confirm'=>'Are you sure you want to delete that Facility?' ,'class' => 'ace-icon fa fa-trash-o bigger-130' )); ?>
-			</td>
+			  <td class='actions'>
+                    <?php echo $this->Html->link( 'แก้ไข', array('action' => 'edit', 
+                     $facility['Facility']['facility_id']), array(
+                        'class' => 'btn btn-info' )); ?>
+                
+                    <?php echo $this->Form->postLink( 'ลบ', array('action' => 'delete', 
+                     $facility['Facility']['facility_id']), array(
+                            'confirm'=>'Are you sure you want to delete that Facility?' ,
+                            'class' => 'btn btn-info' )); ?>
+            </td>
 		</tr>
 		<?php } ?>
 	</tbody>

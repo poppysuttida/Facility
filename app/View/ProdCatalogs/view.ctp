@@ -15,7 +15,7 @@
   <div class="col-xs-6 col-md-1"></div>
   <div class="col-xs-6 col-md-10">
 	<H2><?php echo __('รายการชนิดพัสดุ');?></H2>
-	<div class="form-group" id="searchform">
+<!-- 	<div class="form-group" id="searchform">
         <div class="col-md-12">
         <div class="col-sm-9" align = "right">
         	<?php echo $this->Form->create('ProdCatalog', array('name' => 'FindProdCatalog', 
@@ -35,12 +35,12 @@
             array('alt' => 'Facility')); ?> </a>
         </div>
 		</div>
-    </div><br><br>
+    </div><br><br> -->
 <!-- link to add new users page -->
-<!-- 	<div align = "right">
+	<div align = "right">
 	<?php echo $this->Html->link( 'สร้างรายการ', array( 'action' => 'add' ) , array(
 						'class' => 'btn btn-success' )); ?>
-	</div> --> 
+	</div> <br>
 
 <table class="table table-bordered table-striped">
 	<!-- table heading -->

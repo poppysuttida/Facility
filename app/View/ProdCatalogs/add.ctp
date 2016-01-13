@@ -23,7 +23,7 @@
 	<div class="form-group">
         <div class="col-md-12">
         <div class="col-sm-4" align = "right">
-        	<?php echo __('ชื่อชนิดพัสดุ'); ?>
+        	<b><?php echo __('ชื่อชนิดพัสดุ'); ?></b>
     	</div>
 			<?php echo $this->Form->create('ProdCatalog'); ?>
 		<div class="col-sm-4">

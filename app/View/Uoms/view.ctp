@@ -31,6 +31,7 @@
     <tr>
         <th><?php echo __('รหัส');?></th>
         <th><?php echo __('หน่วยนับ');?></th>
+        <th><?php echo __('จัดการ');?></th>
     </tr>
  <tbody>
 <?php
