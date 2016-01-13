@@ -13,7 +13,7 @@
 	</div>	
 	<div class="col-md-2">
 		<div align = "center">
-				<a href="<?php echo Router::url(array('controller'=>'ProductCatalogs', 'action'=>'view')); ?>">
+				<a href="<?php echo Router::url(array('controller'=>'ProdCatalogs', 'action'=>'view')); ?>">
 					<?php echo $this->Html->image('icon-3.png', array('alt' => 'ProductCatalog')); ?>
 					<div class="menu-title">ProductCatalog</div>
 					<div class="menu-sub-title-nowrap">หมวดหมู่พัสดุ</div>
