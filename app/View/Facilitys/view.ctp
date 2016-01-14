@@ -14,24 +14,7 @@
   <div class="col-xs-6 col-md-1"></div>
   <div class="col-xs-6 col-md-10">
 	<H2><?php echo __('รายการคลังพัสดุ');?></H2>
-	<!-- <div class="form-group" id="searchform">
-        <div class="col-md-12">
-        <div class="col-sm-9" align = "right">
-        	<?php echo $this->Form->create('Facility', array('name' => 'FindFacility', 
-        'type' => 'get', 'url' => array('controller' => 'Facilitys', 
-        'action' => 'view'), 'class' => 'form-horizontal')); ?>
-        	<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-        	<?php echo __('ชื่อคลังพัสดุ'); ?>
-    	</div>
-		<div class="col-sm-3">
-			<?php echo $this->Form->input('facility_name', array('label' => false, 'div' => false,'class' => 'nav-search-input', 
-                    'type' => 'text',
-                    'value' => isset($this->params->query['facility_name'])?
-                    $this->params->query['facility_name']: '')); ?>
-        </div>
-		</div>
-    </div><br><br> -->
-<!-- link to add new users page -->
+	
 <div align = "right">
 	<?php echo $this->Html->link( 'สร้างรายการ', array( 'action' => 'add' ) , array(
 						'class' => 'btn btn-success' )); ?>

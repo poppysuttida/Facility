@@ -4,11 +4,11 @@
     <li role="presentation">
       <?php echo $this->Html->link( 'หน้าแรก', array('controller'=>'pages','action' => 'home' )); ?></li>
     <li role="presentation">
-      <?php echo $this->Html->link( 'ชนิดพัสดุ', array('controller'=>'ProdCatalogs',
+      <?php echo $this->Html->link( 'หมวดหมู่พัสดุ', array('controller'=>'ProdCatalogs',
       'action' => 'view' )); ?>
     </li>
     <li role="presentation" class="active">
-      <?php echo $this->Html->link( 'แก้ไขชนิดพัสดุ', array('controller'=>'ProdCatalogs',
+      <?php echo $this->Html->link( 'แก้ไขหมวดหมู่พัสดุ', array('controller'=>'ProdCatalogs',
       'action' => 'add' )); ?>
     </li>
   </ul>
@@ -16,13 +16,13 @@
 <div class="row">
   <div class="col-xs-6 col-md-1"></div>
   <div class="col-xs-6 col-md-10">
-<H2><?php echo __('แก้ไขรายการชนิดพัสดุ');?></H2>
+<H2><?php echo __('แก้ไขรายการหมวดหมู่พัสดุ');?></H2>
 <br>
  <!-- this is our add form, name the fields same as database column names -->
 	<div class="form-group">
         <div class="col-md-12">
         <div class="col-sm-4" align = "right">
-        	<b><?php echo __('ชื่อชนิดพัสดุ'); ?></b>
+        	<b><?php echo __('ชื่อหมวดหมู่พัสดุ'); ?></b>
     	</div>
 			<?php echo $this->Form->create('ProdCatalog'); ?>
 		<div class="col-sm-4">

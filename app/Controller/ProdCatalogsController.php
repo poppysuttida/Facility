@@ -9,13 +9,11 @@ class ProdCatalogsController extends AppController {
 		$this->set('prodcatalogs', $this->ProdCatalog->find('all'));
 	}
 
-	public function add(){
+public function add(){
 	
 		//check if it is a post request
 		//this way, we won't have to do if(!empty($this->request->data))
 		if ($this->request->is('post')){
-			$this->request->data['ProdCatalog']['cat'] = $this->request->data['ProdCatalog']['product_catalog_name'];
-			//debug($this->request->data); exit;
 			//save new user
 			if ($this->ProdCatalog->save($this->request->data)){
 			
@@ -26,7 +24,7 @@ class ProdCatalogsController extends AppController {
 				
 			}else{
 				//if save failed
-				$this->Session->setFlash('Unable to add user. Please, try again.');
+				$this->Session->setFlash('Unable to add ProdCatalog. Please, try again.');
 				
 			}
 		}

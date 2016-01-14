@@ -4,14 +4,23 @@ class Product extends AppModel {
     public $useTable = 'PRODUCT';
     public $primaryKey = 'product_id';
     public $belongsTo = array(
-        'Facility' => array(
-            'className' => 'Facility',
-            'foreignKey' =>'facility_id'
-        ),
+       
         'Uom' => array(
-            'className' => 'Uom',
+           'className' => 'Uom',
             'foreignKey' => 'uom_id'
-        )
+       ),
+        'ProductType' => array(
+            'className' => 'ProductType',
+            'foreignKey' =>'product_type_id'
+        ),
+        'ProductCategory' => array(
+           'className' => 'ProductCategory',
+            'foreignKey' => 'product_category_id'
+       ),
+        'Facility' => array(
+           'className' => 'Facility',
+            'foreignKey' => 'facility_id'
+       )
     );
  
     public $validate = array(

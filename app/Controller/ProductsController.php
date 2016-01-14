@@ -1,6 +1,6 @@
 <?php
 class ProductsController extends AppController {
-	public $uses = array('Uom', 'Product', 'Facility');
+	public $uses = array('Uom', 'Product', 'Facility','ProductType','ProductCategory');
 	public $name = 'Products';
 	public $components = array('Paginator');
 	public function view() {
@@ -8,23 +8,48 @@ class ProductsController extends AppController {
 		$conditions = array();
         // find all facility
         $list_product = $this->Product->find('all', array(
-            'fields' => array('Product.product_id', 'Product.product_name', 'Product.uom_id', 'Product.facility_id'),
+            'fields' => array(
+            	'Product.product_id', 
+            	'Product.product_name', 
+            	'Product.uom_id', 
+            	'Product.product_category_id',
+            	'Product.product_type_id',
+            	'Product.facility_id',
+            	'Uom.uom_name',
+            	'ProductType.product_type_name',
+            	'ProductCategory.category_name',
+            	'Facility.facility_name'
+            ),
+            'orders' => array('Product.product_id' => 'DESC'),
             'recursive' => 0
         ));
+      	//echo '1<pre>';print_r($list_product);echo '</pre><hr/>';
+        //exit;
         if (!isset($list_product)) {
             exit;
         }
 
-        $this->Paginator->settings = array(
+        /*$ps = $this->Paginator->settings = array(
             'Product' => array(
+            	'fields' => array(
+            	'Product.product_id', 
+            	'Product.product_name', 
+            	'Product.uom_id', 
+            	'Product.product_category_id',
+            	'Product.product_type_id',
+            	'Product.facility_id',
+            	'ProductCategory.product_category_id',
+            	'ProductCategory.category_name'
+            	),
                 'limit' => 20,
-                'order' => array('DESC'),
+                'order' => array('Product.product_id' => 'DESC'),
                 'recursive' => 0
             )
         );
 
-        $result = $this->Paginator->paginate('Product');
-        $this->set(compact('result', 'list_product'));
+        $result = $this->Paginator->paginate('Product', $ps);
+        echo '2<pre>'; print_r('$result');echo '</pre><hr/>';*/
+        $this->set(compact('list_product'));
 	}
 
 	
@@ -37,6 +62,14 @@ class ProductsController extends AppController {
         ));
         $uom_list = $this->Uom->find('list', array(
             'fields' => array('Uom.uom_id', 'Uom.uom_name'),
+            'recursive' => -1
+        ));
+        $type_list = $this->ProductType->find('list', array(
+            'fields' => array('ProductType.product_type_id', 'ProductType.product_type_name'),
+            'recursive' => -1
+        ));
+        $category_list = $this->ProductCategory->find('list', array(
+            'fields' => array('ProductCategory.product_category_id', 'ProductCategory.category_name'),
             'recursive' => -1
         ));
 		//check if it is a post request
@@ -57,7 +90,7 @@ class ProductsController extends AppController {
 				
 			}
 		}
-		$this->set(compact('facility_list', 'uom_list'));
+		$this->set(compact('facility_list','uom_list','type_list','category_list'));
 	}
 
 	public function edit() {
@@ -74,6 +107,14 @@ class ProductsController extends AppController {
         ));
         $uom_list = $this->Uom->find('list', array(
             'fields' => array('Uom.uom_id', 'Uom.uom_name'),
+            'recursive' => -1
+        ));
+        $type_list = $this->ProductType->find('list', array(
+            'fields' => array('ProductType.product_type_id', 'ProductType.product_type_name'),
+            'recursive' => -1
+        ));
+        $category_list = $this->ProductCategory->find('list', array(
+            'fields' => array('ProductCategory.product_category_id', 'ProductCategory.category_name'),
             'recursive' => -1
         ));
 		
@@ -110,7 +151,7 @@ class ProductsController extends AppController {
 			//it looks like this
 			//throw new NotFoundException('The user you are trying to edit does not exist.');
 		}
-		$this->set(compact('facility_list', 'uom_list'));
+		$this->set(compact('facility_list','uom_list','type_list','category_list'));
 	}
 
 	public function delete() {

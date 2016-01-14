@@ -33,14 +33,14 @@
         </div>
         <div class="col-sm-4"></div>
         </div>
-    </div><br>s
+    </div><br><br><br>
     <div class="form-group">
         <div class="col-md-12">
         <div class="col-sm-4" align = "right">
             <?php echo __('หน่วยนับ'); ?>
         </div>
         <div class="col-sm-4">
-            <?php echo $this->Form->input('uom_uom_id', array('label' => false, 
+            <?php echo $this->Form->input('uom_id', array('label' => false, 
                 'div' => false,
                 'type' => 'select', 
                 'class' => 
@@ -52,14 +52,46 @@
         'action' => 'add' )); ?>
         </div>
         </div>
-    </div><br>
+    </div><br><br>
     <div class="form-group">
         <div class="col-md-12">
         <div class="col-sm-4" align = "right">
-            <?php echo __('คลังสินค้า'); ?>
+            <?php echo __('ชนิดพัสดุ'); ?>
         </div>
         <div class="col-sm-4">
-            <?php echo $this->Form->input('facility_facility_id', array('label' => false, 
+            <?php echo $this->Form->input('product_category_id', array('label' => false, 
+                'div' => false,
+                'type' => 'select', 
+                'class' => 
+                'form-control', 
+                'options' => $category_list));?>
+        </div>
+        <div class="col-sm-4"></div>
+        </div>
+    </div><br><br>
+      <div class="form-group">
+        <div class="col-md-12">
+        <div class="col-sm-4" align = "right">
+            <?php echo __('ประเภทพัสดุ'); ?>
+        </div>
+        <div class="col-sm-4">
+            <?php echo $this->Form->input('product_type_id', array('label' => false, 
+                'div' => false,
+                'type' => 'select', 
+                'class' => 
+                'form-control', 
+                'options' => $type_list));?>
+        </div>
+        <div class="col-sm-4"></div>
+        </div>
+    </div><br><br>
+    <div class="form-group">
+        <div class="col-md-12">
+        <div class="col-sm-4" align = "right">
+            <?php echo __('คลังที่จัดเก็บพัสดุ'); ?>
+        </div>
+        <div class="col-sm-4">
+            <?php echo $this->Form->input('facility_id', array('label' => false, 
                 'div' => false,
                 'type' => 'select', 
                 'class' => 
@@ -68,7 +100,7 @@
         </div>
         <div class="col-sm-4"></div>
         </div>
-    </div><br>
+    </div><br><br>
     <div class="form-group">
         <div class="col-md-12">
         <div class="col-sm-4"></div>

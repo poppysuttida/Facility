@@ -20,23 +20,27 @@
 <table class="table table-bordered table-striped">
     <!-- table heading -->
     <tr>
-        <th><?php echo __('รหัส');?></th>
-        <th><?php echo __('รายการ');?></th>
-        <th><?php echo __('หน่วย');?></th>
+        <th><?php echo __('รหัสพัสดุ');?></th>
+        <th><?php echo __('รายการพัสดุ');?></th>
+        <th><?php echo __('หน่วยนับ');?></th>
+        <th><?php echo __('ประเภทพัสดุ');?></th>
+        <th><?php echo __('ชนิดพัสดุ');?></th>
         <th><?php echo __('คลังพัสดุ');?></th>
-        <th><?php echo __('จัดการ');?></th>
+        <th><?php echo __('จัดการพัสดุ');?></th>
     </tr>
 
    <tbody>
             <?php 
-                if(isset($result)):
-                    foreach ($result AS $key => $value):?>
+                if(isset($list_product)):
+                    foreach ($list_product AS $key => $value):?>
                 <tr>
                     <td class="center"><?php echo $value['Product']['product_id']; ?></td>
                     <td class="left"><?php echo $value['Product']['product_name']; ?></td>
                     <td class="left"><?php echo $value['Uom']['uom_name']; ?></td>
+                    <td class="left"><?php echo $value['ProductType']['product_type_name']; ?></td>
+                    <td class="left"><?php echo $value['ProductCategory']['category_name']; ?></td>
                     <td class="left"><?php echo $value['Facility']['facility_name']; ?></td>
-                     <td class='actions'>
+                    <td class='actions'>
                     <?php echo $this->Html->link( 'แก้ไข', array('action' => 'edit', 
                      $value['Product']['product_id']), array(
                         'class' => 'btn btn-info' )); ?>

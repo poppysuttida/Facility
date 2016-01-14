@@ -4,11 +4,10 @@
     <li role="presentation">
       <?php echo $this->Html->link( 'หน้าแรก', array('controller'=>'pages','action' => 'home' )); ?></li>
     <li role="presentation">
-      <?php echo $this->Html->link( 'พัสดุ', array('controller'=>'Products',
-      'action' => 'view' )); ?>
+      <?php echo $this->Html->link( 'รายการรับของเข้าคลัง', array('controller'=>'InventoryItems','action' => 'view' )); ?>
     </li>
     <li role="presentation" class="active">
-      <?php echo $this->Html->link( 'สร้างรายการพัสดุ', array('controller'=>'Products',
+      <?php echo $this->Html->link( 'สร้างรายการรับของเข้าคลัง', array('controller'=>'InventoryItems',
       'action' => 'add' )); ?>
     </li>
   </ul>
@@ -16,28 +15,30 @@
 <div class="row">
   <div class="col-xs-6 col-md-1"></div>
   <div class="col-xs-6 col-md-10">
-<H2><?php echo __('เพิ่มรายการพัสดุ');?></H2>
+<H2><?php echo __('เพิ่มรายการรับของเข้าคลัง');?></H2>
 <br>
 <!--this is our add form, name the fields same as database column names -->
-<?php echo $this->Form->create('Product');?>
+<?php echo $this->Form->create('InventoryItem');?>
     <div class="form-group">
         <div class="col-md-12">
         <div class="col-sm-4" align = "right">
-            <?php echo __('รายการพัสดุ'); ?>
+            <b><?php echo __('รายการรับของเข้าคลัง'); ?></b>
         </div>
-        <div class="col-sm-4">
-            <?php echo $this->Form->input('product_name', array('label' => false, 
+          <div class="col-sm-4">
+            <?php echo $this->Form->input('product_id', array('label' => false, 
                 'div' => false,
-                'type' => 'text', 
-                'class' => 'form-control'));?> 
+                'type' => 'select', 
+                'class' => 
+                'form-control', 
+                'options' => $product_list));?>
         </div>
         <div class="col-sm-4"></div>
         </div>
-    </div><br>
+    </div><br><br><br>
     <div class="form-group">
         <div class="col-md-12">
         <div class="col-sm-4" align = "right">
-            <?php echo __('ราคา'); ?>
+            <b><?php echo __('ราคา'); ?></b>
         </div>
         <div class="col-sm-4">
             <?php echo $this->Form->input('product_price', array('label' => false, 
@@ -47,42 +48,36 @@
         </div>
         <div class="col-sm-4"></div>
         </div>
-    </div><br>
+    </div><br><br>
     <div class="form-group">
         <div class="col-md-12">
         <div class="col-sm-4" align = "right">
-            <?php echo __('หน่วยนับ'); ?>
+            <b><?php echo __('หน่วยนับ'); ?></b>
         </div>
         <div class="col-sm-4">
-            <?php echo $this->Form->input('uom_uom_id', array('label' => false, 
+            <?php echo $this->Form->input('uom_id', array('label' => false, 
                 'div' => false,
                 'type' => 'select', 
                 'class' => 
                 'form-control', 
-                'options' => $location_list));?>
-        </div>
-        <div class="col-sm-4">
-        <?php echo $this->Html->link( 'เพิ่มหน่วยนับ', array('controller'=>'Uoms',
-        'action' => 'add' )); ?>
+                'options' => $uom_list));?>
         </div>
         </div>
-    </div><br>
-    <div class="form-group">
+    </div><br><br>
+        <div class="form-group">
         <div class="col-md-12">
         <div class="col-sm-4" align = "right">
-            <?php echo __('คลังสินค้า'); ?>
+            <b><?php echo __('จำนวนทั้งหมด'); ?></b>
         </div>
         <div class="col-sm-4">
-            <?php echo $this->Form->input('facility_facility_id', array('label' => false, 
+            <?php echo $this->Form->input('quantity_total', array('label' => false, 
                 'div' => false,
-                'type' => 'select', 
-                'class' => 
-                'form-control', 
-                'options' => $facility_list));?>
+                'type' => 'text', 
+                'class' => 'form-control'));?>    
         </div>
         <div class="col-sm-4"></div>
         </div>
-    </div><br>
+    </div><br><br>
     <div class="form-group">
         <div class="col-md-12">
         <div class="col-sm-4"></div>
