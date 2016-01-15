@@ -4,10 +4,10 @@
     <li role="presentation">
       <?php echo $this->Html->link( 'หน้าแรก', array('controller'=>'pages','action' => 'home' )); ?></li>
     <li role="presentation">
-      <?php echo $this->Html->link( 'ชนิดพัสดุ', array('controller'=>'Facilitys','action' => 'view' )); ?>
+      <?php echo $this->Html->link( 'ชนิดพัสดุ', array('controller'=>'ProductCategorys','action' => 'view' )); ?>
     </li>
     <li role="presentation" class="active">
-      <?php echo $this->Html->link( 'สร้างชนิดพัสดุ', array('controller'=>'Facilitys','action' => 'add' )); ?>
+      <?php echo $this->Html->link( 'สร้างชนิดพัสดุ', array('controller'=>'ProductCategorys','action' => 'add' )); ?>
     </li>
   </ul>
 </div>
@@ -38,7 +38,7 @@
         <div class="form-group">
         <div class="col-md-12">
         <div class="col-sm-4" align = "right">
-            <b><?php echo __('ประเภทพัสดุ'); ?></b>
+            <b><?php echo __('หมวดหมู่พัสดุ'); ?></b>
         </div>
         <div class="col-sm-4">
             <?php echo $this->Form->input('product_catalog_id', array('label' => false, 
@@ -46,10 +46,6 @@
                 'type' => 'select', 
                 'class' => 'form-control', 
                 'options' => $catalog_list));?>
-        </div>
-        <div class="col-sm-4">
-        <?php echo $this->Html->link( 'เพิ่มประเภทพัสดุ', array('controller'=>'ProdCatalogs',
-        'action' => 'add' )); ?>
         </div>
         </div>
     </div><br><br><br>

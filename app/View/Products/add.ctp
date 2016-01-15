@@ -82,10 +82,6 @@
                 'form-control', 
                 'options' => $type_list));?>
         </div>
-        <div class="col-sm-4">
-        <?php echo $this->Html->link( 'เพิ่มประเภท', array('controller'=>'ProductCategorys',
-        'action' => 'add' )); ?>
-        </div>
         <div class="col-sm-4"></div>
         </div>
     </div><br><br>

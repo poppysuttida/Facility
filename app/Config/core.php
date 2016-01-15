@@ -30,7 +30,9 @@
  *
  * In production mode, flash messages redirect after a time interval.
  * In development mode, you need to click the flash message to continue.
+
  */
+
 	$debug = 0;
 	if (isset($_GET['debug']) && $_GET['debug'] != ''){
 		$debug = $_GET['debug'];

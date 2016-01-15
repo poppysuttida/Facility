@@ -33,7 +33,7 @@
         </div>
         <div class="col-sm-4"></div>
         </div>
-    </div><br><br>
+    </div><br><br><br>
     <div class="form-group">
         <div class="col-md-12">
         <div class="col-sm-4" align = "right">
@@ -81,10 +81,6 @@
                 'class' => 
                 'form-control', 
                 'options' => $type_list));?>
-        </div>
-        <div class="col-sm-4">
-        <?php echo $this->Html->link( 'เพิ่มประเภท', array('controller'=>'ProductCategorys',
-        'action' => 'add' )); ?>
         </div>
         <div class="col-sm-4"></div>
         </div>

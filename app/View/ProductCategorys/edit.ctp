@@ -38,7 +38,7 @@
         <div class="form-group">
         <div class="col-md-12">
         <div class="col-sm-4" align = "right">
-            <b><?php echo __('ประเภทพัสดุ'); ?></b>
+            <b><?php echo __('หมวดหมู่พัสดุ'); ?></b>
         </div>
         <div class="col-sm-4">
             <?php echo $this->Form->input('product_catalog_id', array('label' => false, 
@@ -46,10 +46,6 @@
                 'type' => 'select', 
                 'class' => 'form-control', 
                 'options' => $catalog_list));?>
-        </div>
-        <div class="col-sm-4">
-        <?php echo $this->Html->link( 'เพิ่มที่ตั้งคลังพัสดุ', array('controller'=>'Uoms',
-        'action' => 'add' )); ?>
         </div>
         </div>
     </div><br><br><br>

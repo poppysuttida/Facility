@@ -5,7 +5,7 @@
       <?php echo $this->Html->link( 'หน้าแรก', array('controller'=>'pages','action' => 'home' 
       )); ?></li>
     <li role="presentation" class="active">
-      <?php echo $this->Html->link( 'ชนิดพัสดุ', array('controller'=>'Facilitys','action' => 'view' 
+      <?php echo $this->Html->link( 'ชนิดพัสดุ', array('controller'=>'ProductCategorys','action' => 'view' 
       )); ?>
     </li>
   </ul>
@@ -27,7 +27,8 @@
 		<th><?php echo __('รหัสชนิดพัสดุ');?></th>
 		<th><?php echo __('ชื่อชนิดพัสดุ');?></th>
     <th><?php echo __('ชื่อหมวดหมู่พัสดุ');?></th>
-		<th><?php echo __('จัดการชนิดพัสดุ');?></th>
+		<th><?php echo __('จัดการ');?></th>
+
 	</tr>
 	<tbody>
 <?php

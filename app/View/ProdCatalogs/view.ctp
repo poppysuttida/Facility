@@ -5,7 +5,7 @@
       <?php echo $this->Html->link( 'หน้าแรก', array('controller'=>'pages','action' => 'home' 
       )); ?></li>
     <li role="presentation" class="active">
-      <?php echo $this->Html->link( 'ชนิดพัสดุ', array('controller'=>'ProdCatalogs','
+      <?php echo $this->Html->link( 'หมวดหมู่พัสดุ', array('controller'=>'ProdCatalogs','
       	action' => 'view' 
       )); ?>
     </li>
@@ -14,28 +14,8 @@
 <div class="row">
   <div class="col-xs-6 col-md-1"></div>
   <div class="col-xs-6 col-md-10">
-	<H2><?php echo __('รายการชนิดพัสดุ');?></H2>
-<!-- 	<div class="form-group" id="searchform">
-        <div class="col-md-12">
-        <div class="col-sm-9" align = "right">
-        	<?php echo $this->Form->create('ProdCatalog', array('name' => 'FindProdCatalog', 
-        'type' => 'get', 'url' => array('controller' => 'ProdCatalogs', 
-        'action' => 'view'), 'class' => 'form-horizontal')); ?>
-        	<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-        	<?php echo __('ชื่อชนิดพัสดุ'); ?>
-    	</div>
-		<div class="col-sm-3">
-			<?php echo $this->Form->input('product_catalog_name', array('label' => false, 'div' => false,'class' => 'nav-search-input', 
-                    'type' => 'text',
-                    'value' => isset($this->params->query['product_catalog_name'])?
-                    $this->params->query['product_catalog_name']: '')); ?>
-            &nbsp;&nbsp;&nbsp;
-             <a href="<?php echo Router::url(array('controller'=>'ProdCatalogs', 'action'=>'add')); ?>">
-            <?php echo $this->Html->image('icon-create.png', 
-            array('alt' => 'Facility')); ?> </a>
-        </div>
-		</div>
-    </div><br><br> -->
+	<H2><?php echo __('รายการหมวดหมู่พัสดุ');?></H2>
+
 <!-- link to add new users page -->
 	<div align = "right">
 	<?php echo $this->Html->link( 'สร้างรายการ', array( 'action' => 'add' ) , array(
