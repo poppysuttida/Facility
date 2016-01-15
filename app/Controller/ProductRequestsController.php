@@ -1,7 +1,7 @@
 <?php
-class ProductsController extends AppController {
-	public $uses = array('Uom', 'Product', 'Facility','ProductType','ProductCategory');
-	public $name = 'Products';
+class ProductRequestsController extends AppController {
+	public $uses = array('Uom', 'Product','InventoryItem','Transfer');
+	public $name = 'ProductRequests';
 	public $components = array('Paginator');
 	public function view() {
 		//$this->set('products', $this->Product->find('all'));

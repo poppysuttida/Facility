@@ -1,46 +1,57 @@
 <?php
-class FacilitylocationsController extends AppController {
-
-	public $name = 'Facilitylocations';
+class ProductCategorysController extends AppController {
+	public $name = 'ProductCategorys';
+	public $uses = array('ProductCategory','ProdCatalog');
 	public function view() {
 		//to retrieve all users, need just one line
-		$this->set('facilitylocations', $this->Facilitylocation->find('all'));
+		$this->set('productcategorys', $this->ProductCategory->find('all'));
 	}
 	
 	public function add(){
+		$catalog_list = $this->ProdCatalog->find('list', array(
+            'fields' => array('ProdCatalog.product_catalog_id', 
+            'ProdCatalog.product_catalog_name'),
+            'recursive' => -1
+        ));
 	
 		//check if it is a post request
 		//this way, we won't have to do if(!empty($this->request->data))
 		if ($this->request->is('post')){
 			//save new user
-			if ($this->Facilitylocation->save($this->request->data)){
+			if ($this->ProductCategory->save($this->request->data)){
 			
 				//set flash to user screen
-				$this->Session->setFlash('Facilitylocation was added.');
+				$this->Session->setFlash('ProductCategory was added.');
 				//redirect to user list
 				$this->redirect(array('action' => 'view'));
 				
 			}else{
 				//if save failed
-				$this->Session->setFlash('Unable to add Facilitylocation. Please, try again.');
+				$this->Session->setFlash('Unable to add ProductCategory. Please, try again.');
 				
 			}
 		}
+		$this->set(compact('catalog_list'));
 	}
 
 	public function edit() {
 		//get the id of the user to be edited
 		$id = $this->request->params['pass'][0];
 		
+			$catalog_list = $this->ProdCatalog->find('list', array(
+            'fields' => array('ProdCatalog.product_catalog_id', 
+            'ProdCatalog.product_catalog_name'),
+            'recursive' => -1
+        ));
 		//set the user id
-		$this->Facilitylocation->id = $id;
+		$this->ProductCategory->id = $id;
 		
 		//check if a user with this id really exists
-		if( $this->Facilitylocation->exists() ){
+		if( $this->ProductCategory->exists() ){
 		
 			if( $this->request->is( 'post' ) || $this->request->is( 'put' ) ){
 				//save user
-				if( $this->Facilitylocation->save( $this->request->data ) ){
+				if( $this->ProductCategory->save( $this->request->data ) ){
 				
 					//set to user's screen
 					$this->Session->setFlash('แก้ไขข้อมูลเรียบร้อยแล้ว');
@@ -56,7 +67,7 @@ class FacilitylocationsController extends AppController {
 			
 				//we will read the user data
 				//so it will fill up our html form automatically
-				$this->request->data = $this->Facilitylocation->read();
+				$this->request->data = $this->ProductCategory->read();
 			}
 			
 		}else{
@@ -69,7 +80,7 @@ class FacilitylocationsController extends AppController {
 			//throw new NotFoundException('The user you are trying to edit does not exist.');
 		}
 		
-
+		$this->set(compact('catalog_list'));
 	}
 
 	public function delete() {
@@ -92,7 +103,7 @@ class FacilitylocationsController extends AppController {
 				
 			}else{
 				//delete user
-				if( $this->Facilitylocation->delete( $id ) ){
+				if( $this->ProductCategory->delete( $id ) ){
 					//set to screen
 					$this->Session->setFlash('ลบข้อมูลเรียบร้อยแล้ว');
 					//redirect to users's list

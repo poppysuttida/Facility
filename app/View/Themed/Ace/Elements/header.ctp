@@ -19,6 +19,7 @@
 					<small>
 						<i class="fa fa-leaf"></i>
 						Facility
+						<?php echo 'สวัสดีคุณ '.$this->Session->read('user_login.user_name'); ?>
 					</small>
 				</a>
 			</div>	

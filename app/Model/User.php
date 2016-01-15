@@ -1,11 +1,12 @@
 <?php
 class User extends AppModel {
 	public $name = 'User';
+	public $useTable = 'USER';
+    public $primaryKey = 'user_id';
 	public $displayField = 'name';
 	
-	
-	public $validate = array(
-		'firstname'=>array(
+	/*public $validate = array(
+		'U_name'=>array(
 			'Please enter your name.'=>array(
 				'rule'=>'notEmpty',
 				'message'=>'Please enter your name.'
@@ -27,7 +28,7 @@ class User extends AppModel {
 				'message'=>'Please enter a valid email address'
 			)
 		)
-	);
+	);*/
 	
 }
 ?>

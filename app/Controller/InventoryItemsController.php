@@ -9,11 +9,11 @@ class InventoryItemsController extends AppController {
         // find all facility
         $list_item = $this->InventoryItem->find('all', array(
             'fields' => array('InventoryItem.inventory_item_id',
-             'InventoryItem.product_price',
-             'InventoryItem.quantity_account',
-             'InventoryItem.quantity_total', 
              'Product.product_name', 
-             'Uom.uom_id'),
+             'InventoryItem.product_price', 
+             'Uom.uom_id',
+             'InventoryItem.quantity_total',
+             'InventoryItem.quantity_account'),
             'recursive' => 0
         ));
         if (!isset($list_item)) {
@@ -35,59 +35,61 @@ class InventoryItemsController extends AppController {
 	
 	public function add(){
 	
-		// find all facility type
-        $facility_list = $this->Facility->find('list', array(
-            'fields' => array('Facility.facility_id', 'Facility.Facility_name'),
+		// find list product
+        $product_list = $this->Product->find('list', array(
+            'fields' => array('Product.product_id', 'Product.product_name'),
             'recursive' => -1
         ));
         $uom_list = $this->Uom->find('list', array(
             'fields' => array('Uom.uom_id', 'Uom.uom_name'),
             'recursive' => -1
         ));
+
 		//check if it is a post request
 		//this way, we won't have to do if(!empty($this->request->data))
-		if ($this->request->is('post')){
-			//save new user
-			//echo '<pre>'; print_r($this->request->data); exit;
-			if ($this->Product->save($this->request->data)){
+			if ($this->request->is('post')){
+			$this->request->data['InventoryItem']['quantity_account'] = $this->request->data['InventoryItem']['quantity_total'];
+
+			//save new InventoryItem
+			if ($this->InventoryItem->save($this->request->data)){
 			
-				//set flash to user screen
-				$this->Session->setFlash('Product was added.');
-				//redirect to user list
+				//set flash to InventoryItem screen
+				$this->Session->setFlash('InventoryItem was added.');
+				//redirect to InventoryItem list
 				$this->redirect(array('action' => 'view'));
 				
 			}else{
 				//if save failed
-				$this->Session->setFlash('Unable to add Product. Please, try again.');
+				$this->Session->setFlash('Unable to add InventoryItem. Please, try again.');
 				
 			}
 		}
-		$this->set(compact('facility_list', 'uom_list'));
+		$this->set(compact('product_list', 'uom_list'));
 	}
 
 	public function edit() {
-		//get the id of the user to be edited
-		$id = $this->request->params['pass'][0];
-		
-		//set the user id
-		$this->Product->id = $id;
-
-		// find all facility type
-        $facility_list = $this->Facility->find('list', array(
-            'fields' => array('Facility.facility_id', 'Facility.Facility_name'),
+		// find list product
+        $product_list = $this->Product->find('list', array(
+            'fields' => array('Product.product_id', 'Product.product_name'),
             'recursive' => -1
         ));
         $uom_list = $this->Uom->find('list', array(
             'fields' => array('Uom.uom_id', 'Uom.uom_name'),
             'recursive' => -1
         ));
+
+		//get the id of the user to be edited
+		$id = $this->request->params['pass'][0];
 		
+		//set the user id
+		$this->InventoryItem->id = $id;
+
 		//check if a user with this id really exists
-		if( $this->Product->exists() ){
+		if( $this->InventoryItem->exists() ){
 		
 			if( $this->request->is( 'post' ) || $this->request->is( 'put' ) ){
 				//save user
-				if( $this->Product->save( $this->request->data ) ){
+				if( $this->InventoryItem->save( $this->request->data ) ){
 				
 					//set to user's screen
 					$this->Session->setFlash('แก้ไขข้อมูลเรียบร้อยแล้ว');
@@ -103,7 +105,7 @@ class InventoryItemsController extends AppController {
 			
 				//we will read the user data
 				//so it will fill up our html form automatically
-				$this->request->data = $this->Product->read();
+				$this->request->data = $this->InventoryItem->read();
 			}
 			
 		}else{
@@ -115,7 +117,7 @@ class InventoryItemsController extends AppController {
 			//it looks like this
 			//throw new NotFoundException('The user you are trying to edit does not exist.');
 		}
-		$this->set(compact('facility_list', 'uom_list'));
+		$this->set(compact('product_list', 'uom_list'));
 	}
 
 	public function delete() {
@@ -138,7 +140,7 @@ class InventoryItemsController extends AppController {
 				
 			}else{
 				//delete user
-				if( $this->Product->delete( $id ) ){
+				if( $this->InventoryItem->delete( $id ) ){
 					//set to screen
 					$this->Session->setFlash('ลบข้อมูลเรียบร้อยแล้ว');
 					//redirect to users's list
@@ -147,7 +149,7 @@ class InventoryItemsController extends AppController {
 				}else{	
 					//if unable to delete
 					$this->Session->setFlash('ไม่สามารถลบข้อมูลได้');
-					$this->redirect(array('action' => 'index'));
+					$this->redirect(array('action' => 'view'));
 				}
 			}
 		}
