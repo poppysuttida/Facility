@@ -5,11 +5,11 @@ class LoginsController extends AppController {
 	public $components = array('Paginator', 'Session');
     
 	public function view() {
-		if (isset($this->request->data['ProductCategory']['User_Name']) && isset($this->request->data['ProductCategory']['Pass_word'])){
+		if (isset($this->request->data['User']['User_Name']) && isset($this->request->data['User']['Pass_word'])){
 			$catalog_list = $this->User->find('first', array(
 	            'conditions' => array(
-	            	'User.user_name' => $this->request->data['ProductCategory']['User_Name'],
-	            	'User.user_last_name' => $this->request->data['ProductCategory']['Pass_word']
+	            	'User.user_name' => $this->request->data['User']['User_Name'],
+	            	'User.user_last_name' => $this->request->data['User']['Pass_word']
 	            ),
 	            'recursive' => -1
 	        ));

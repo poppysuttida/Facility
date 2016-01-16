@@ -14,10 +14,10 @@
 				<span class="icon-bar"></span>
 			</button>
 
-			<div class="navbar-header pull-left">
+			<div class="navbar-header pull-Rigth">
 				<a href="#" class="navbar-brand">
 					<small>
-						<i class="fa fa-leaf"></i>
+						<!-- <i class="fa fa-leaf"></i> -->
 						Facility
 						<?php echo 'สวัสดีคุณ '.$this->Session->read('user_login.user_name'); ?>
 					</small>
