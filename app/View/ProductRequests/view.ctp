@@ -4,13 +4,13 @@
     <li role="presentation">
       <?php echo $this->Html->link( 'หน้าแรก', array('controller'=>'pages','action' => 'home' )); ?></li>
     <li role="presentation" class="active">
-      <?php echo $this->Html->link( 'พัสดุ', array('controller'=>'Products','action' => 'view' )); ?></li>
+      <?php echo $this->Html->link( 'รายการขอเบิกพัสดุ', array('controller'=>'ProductRequests','action' => 'view' )); ?></li>
   </ul>
 </div>
 <div class="row">
   <div class="col-xs-6 col-md-1"></div>
   <div class="col-xs-6 col-md-10">
-    <H2><?php echo __('รายการพัสดุ');?></H2>
+    <H2><?php echo __('รายการขอเบิกพัสดุ');?></H2>
 
 <!-- link to add new users page -->
 <div align = "right">

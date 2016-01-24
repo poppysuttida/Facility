@@ -56,7 +56,7 @@ class ProductRequestsController extends AppController {
 	public function add(){
 	
 		// find all facility type
-        $facility_list = $this->Facility->find('list', array(
+       /* $facility_list = $this->Facility->find('list', array(
             'fields' => array('Facility.facility_id', 'Facility.Facility_name'),
             'recursive' => -1
         ));
@@ -91,6 +91,7 @@ class ProductRequestsController extends AppController {
 			}
 		}
 		$this->set(compact('facility_list','uom_list','type_list','category_list'));
+		*/
 	}
 
 	public function edit() {

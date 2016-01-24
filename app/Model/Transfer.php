@@ -1,26 +1,18 @@
 <?php
-class Product extends AppModel {
-	public $name = 'Product';
-    public $useTable = 'PRODUCT';
-    public $primaryKey = 'product_id';
+class Transfer extends AppModel {
+	public $name = 'Transfer';
+    public $useTable = 'TRANSFER';
+    public $primaryKey = 'transfer_id';
     public $belongsTo = array(
        
-        'Uom' => array(
-           'className' => 'Uom',
-            'foreignKey' => 'uom_id'
+        'User' => array(
+           'className' => 'User',
+            'foreignKey' => 'user_id'
        ),
-        'ProductType' => array(
-            'className' => 'ProductType',
-            'foreignKey' =>'product_type_id'
-        ),
-        'ProductCategory' => array(
-           'className' => 'ProductCategory',
-            'foreignKey' => 'product_category_id'
-       ),
-        'Facility' => array(
-           'className' => 'Facility',
-            'foreignKey' => 'facility_id'
-       )
+        'InventoryItem' => array(
+            'className' => 'InventoryItem',
+            'foreignKey' =>'inventory_item_id'
+        )
     );
  
     public $validate = array(
