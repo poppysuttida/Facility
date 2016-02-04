@@ -71,11 +71,11 @@
 	</div>
 	<div class="col-md-2">
 		<div align = "center">
-				<a href="<?php echo Router::url(array('controller'=>'ProductsRequests', 
+				<a href="<?php echo Router::url(array('controller'=>'ProductRequests', 
 				'action'=>'view')); ?>">
 					<?php echo $this->Html->image('icon-10.png', array('alt' => 
 					'ProductsRequest')); ?>
-					<div class="menu-title">ProductsRequest</div>
+					<div class="menu-title">ProductRequests</div>
 					<div class="menu-sub-title-nowrap">ขอเบิกพัสดุ</div>
 					<div class="hover"></div>
 				</a>

@@ -150,7 +150,7 @@ class ADT {
 		$DYscript .= '}$(\'#sum_list_items\').html(adtval_sum_all);}';
 		
 		$DYscript .= '$(function(){ $("html").click(function(e){ 	if(adtval_list_tmp.length > 0){ count = 0; for(var key in adtval_list_tmp) if(adtval_list_tmp[key][0]==false) count = count+1; if(count > 0){ if(($(e.target).parents(\'#adt_table\').size()>0) ||($(e.target).parent(\'.adt_tools\').size()>0)){ /*console.log("Inside div");*/ }else{ /*console.log("Outside div");*/ save = -1; for(var key in adtval_list_tmp) if(adtval_list_tmp[key][0]==false) save = key; if(save > -1) adt_save_item(parseInt(save)); } } } }); });';//start click focus
-		
+		$DYscript .= "$('#addItemData').click(function (e) { alert(adtval_list_tmp);var url = '".Router::url(array('controller' => 'product_requests', 'action' => 'tmpProductpriceAdd')) ."';  $.post(url, {adtval_list_tmp: adtval_list_tmp}, function () { $('#productAddForm').attr('action', '". Router::url(array('controller' => 'product_requests', 'action' => 'add')) ."'); $('#productAddForm').submit(); }); });	";
 		$DYscript .= '</script>';//end script
 		echo $DYscript;//draw script
 	}

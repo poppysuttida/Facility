@@ -33,7 +33,7 @@
 
  */
 
-	$debug = 0;
+	$debug = 2;
 	if (isset($_GET['debug']) && $_GET['debug'] != ''){
 		$debug = $_GET['debug'];
 	}

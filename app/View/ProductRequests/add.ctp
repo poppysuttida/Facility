@@ -43,6 +43,8 @@
         <title>Automatic Dynamic Table</title>
     </head>
     <body>
+        <form action="<?php echo Router::url(array('controller' => 'product_requests', 'action' => 'add')) ?>" method="post" id="productAddForm"><input type="button" id="addItemData" value="บันทึก" class="btn btn-primary">
+
     <?php
     require_once('ADT.php');
     $ADT = new ADT();
@@ -135,9 +137,11 @@
     //echo '<h2>DEBUG VALUE</h2><pre>'; print_r($ADT->column); echo '</pre>';//DEBUGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
     ?>
     <br>
- <!--<div align = "center">
-    <?php echo $this->Html->link( 'เบิกพัสดุ', array( 'action' => 'add' ) , array('class' => 'btn btn-success' )); ?>
-</div>-->
+ <div align = "center">
+    <?php //echo $this->Html->link( 'เบิกพัสดุ', array( 'action' => '#' ) , array('class' => 'btn btn-success','id'=>'addItemData' )); ?>
+    <!-- <input type="button" class="btn btn-success" id="addItemData" value="เบิกพัสดุ">  -->
+</div>
+</form>
     </body>
 
 </html>

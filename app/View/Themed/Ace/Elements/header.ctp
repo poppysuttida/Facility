@@ -14,14 +14,28 @@
 				<span class="icon-bar"></span>
 			</button>
 
-			<div class="navbar-header pull-Rigth">
+			<div class="">
 				<a href="#" class="navbar-brand">
 					<small>
 						<!-- <i class="fa fa-leaf"></i> -->
 						Facility
-						<?php echo 'สวัสดีคุณ '.$this->Session->read('user_login.user_name'); ?>
+						
+
 					</small>
 				</a>
+				<a href="" class="btn btn-danger" style="float:right">ออกจากระบบ</a>
+				<a href="#" class="navbar-brand" style="float:right">
+					<small >
+						<?php 
+
+							if($this->Session->read('user_login.user_name') != ""){
+								echo 'สวัสดีคุณ '.$this->Session->read('user_login.user_name');
+
+							}
+							?>
+					</small>
+				</a>
+				
 			</div>	
 		</div><!-- /.navbar-container -->
 	</div>

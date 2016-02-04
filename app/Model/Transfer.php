@@ -15,14 +15,7 @@ class Transfer extends AppModel {
         )
     );
  
-    public $validate = array(
-		'product_name'=>array(
-			'Please enter your name.'=>array(
-				'rule'=>'notEmpty',
-				'message'=>'กรุณากรอกข้อมูล'
-			)
-		)
-		
+    public $validate = array(		
 	);
 }
 ?>
