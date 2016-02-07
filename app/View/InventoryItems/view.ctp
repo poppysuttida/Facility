@@ -45,9 +45,9 @@
                     <td class="left"><?php echo 
                     $value['Uom']['uom_name']; ?></td>
                     <td class="left"><?php echo 
-                    $value['InventoryItem']['quantity_total']; ?></td>
-                    <td class="left"><?php echo 
                     $value['InventoryItem']['quantity_account']; ?></td>
+                    <td class="left"><?php echo 
+                    $value['InventoryItem']['quantity_total']; ?></td>
                     <td class='actions'>
                     <?php echo $this->Html->link( 'แก้ไข', array('action' => 'edit', 
                      $value['InventoryItem']['inventory_item_id']), array(

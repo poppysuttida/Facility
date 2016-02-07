@@ -5,7 +5,7 @@ class User extends AppModel {
     public $primaryKey = 'user_id';
 	public $displayField = 'name';
 	
-	/*public $validate = array(
+	public $validate = array(
 		'U_name'=>array(
 			'Please enter your name.'=>array(
 				'rule'=>'notEmpty',
@@ -21,14 +21,8 @@ class User extends AppModel {
 				'rule'=>'isUnique',
 				'message'=>'That username has already been taken.'
 			)
-		),
-		'email'=>array(
-			'Valid email'=>array(
-				'rule'=>array('email'),
-				'message'=>'Please enter a valid email address'
-			)
 		)
-	);*/
+	);
 	
 }
 ?>
