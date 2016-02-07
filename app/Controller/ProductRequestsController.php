@@ -6,46 +6,39 @@ class ProductRequestsController extends AppController {
 	public function view() {
 		//$this->set('products', $this->Product->find('all'));
 		$conditions = array();
-        // find all facility
-        $list_product = $this->Transfer->find('all', array(
-            'fields' => array(
-            	'Transfer.transfer_id',
-            	'User.user_id', 
-            	'Product.product_id', 
-            	'Product.product_name', 
-            	'Product.uom_id',
-            	'Uom.uom_name'
-            ),
-            'orders' => array('Product.product_id' => 'DESC'),
+        // find all Tranfer
+        /*$product_list = $this->InventoryItem->find('list', array(
+            'fields' => array('InventoryItem.product_id', 'Product.product_name'),
+            'recursive' => -1
+        ));
+        $uom_list = $this->InventoryItem->find('list', array(
+            'fields' => array('InventoryItem.uom_id', 'Uom.uom_name'),
+            'recursive' => -1
+        ));*/
+
+        $list_item = $this->Transfer->find('all', array(
+            'fields' => array('Transfer.transfer_id ',
+             'InventoryItem.product_id', 
+             'InventoryItem.uom_id',             
+             'Transfer.inventory_item_id',
+             'Transfer.transfer_account',
+             'Transfer.user_id'),
             'recursive' => 0
         ));
-      	//echo '1<pre>';print_r($list_product);echo '</pre><hr/>';
-        //exit;
-        if (!isset($list_product)) {
+        if (!isset($list_item)) {
             exit;
         }
 
-        /*$ps = $this->Paginator->settings = array(
-            'Product' => array(
-            	'fields' => array(
-            	'Product.product_id', 
-            	'Product.product_name', 
-            	'Product.uom_id', 
-            	'Product.product_category_id',
-            	'Product.product_type_id',
-            	'Product.facility_id',
-            	'ProductCategory.product_category_id',
-            	'ProductCategory.category_name'
-            	),
+        $this->Paginator->settings = array(
+            'Transfer' => array(
                 'limit' => 20,
-                'order' => array('Product.product_id' => 'DESC'),
+                'order' => array('DESC'),
                 'recursive' => 0
             )
         );
 
-        $result = $this->Paginator->paginate('Product', $ps);
-        echo '2<pre>'; print_r('$result');echo '</pre><hr/>';*/
-        $this->set(compact('list_product'));
+        $result = $this->Paginator->paginate('Transfer');
+        $this->set(compact('result', 'list_item','product_list','uom_list'));
 	}
 
 	
@@ -61,7 +54,6 @@ class ProductRequestsController extends AppController {
 			$data_save['inventory_item_id'] = $value['productId'] ;
 			$data_save['transfer_account'] = $value['quantity'] ;	
 				if($this->Transfer->save($data_save)){
-					
 					// $data_update = $value[''];
 					// if($this->Transfer->updateAll($data_update)){
 

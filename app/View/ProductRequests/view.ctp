@@ -3,7 +3,8 @@
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation">
       <?php echo $this->Html->link( 'หน้าแรก', array('controller'=>'pages','action' => 'home' )); ?></li>
-    <li role="presentation" class="active">
+    ]
+    <li role="presen\tation" class="active">
       <?php echo $this->Html->link( 'รายการขอเบิกพัสดุ', array('controller'=>'ProductRequests','action' => 'view' )); ?></li>
   </ul>
 </div>
@@ -11,7 +12,6 @@
   <div class="col-xs-6 col-md-1"></div>
   <div class="col-xs-6 col-md-10">
     <H2><?php echo __('รายการขอเบิกพัสดุ');?></H2>
-
 <!-- link to add new users page -->
 <div align = "right">
     <?php echo $this->Html->link( 'สร้างรายการ', array( 'action' => 'add' ) , array(
@@ -20,38 +20,34 @@
 <table class="table table-bordered table-striped">
     <!-- table heading -->
     <tr>
-        <th><?php echo __('รหัสพัสดุ');?></th>
+        <th><?php echo __('รหัส');?></th>
         <th><?php echo __('รายการพัสดุ');?></th>
         <th><?php echo __('หน่วยนับ');?></th>
-        <th><?php echo __('ประเภทพัสดุ');?></th>
-        <th><?php echo __('ชนิดพัสดุ');?></th>
-        <th><?php echo __('คลังพัสดุ');?></th>
-        <th><?php echo __('จัดการพัสดุ');?></th>
+        <th><?php echo __('จำนวนที่เบิกออก');?></th>
+        <th><?php echo __('รายชื่อผู้เบิก');?></th>
+        <th><?php echo __('จัดการการเบิกพัสดุ');?></th>
     </tr>
 
-   <tbody>
+      <tbody>
             <?php 
-                if(isset($list_product)):
-                    foreach ($list_product AS $key => $value):?>
+                if(isset($result)):
+                    foreach ($result AS $key => $value):
+                      // $product_list = isset($value['InventoryItem']['product_id'])?$value['Product']['product_name']: '';
+                     ?>
                 <tr>
-                    <td class="center"><?php echo $value['Product']['product_id']; ?></td>
-                    <td class="left"><?php echo $value['Product']['product_name']; ?></td>
-                    <td class="left"><?php echo $value['Uom']['uom_name']; ?></td>
-                    <td class="left"><?php echo $value['ProductType']['product_type_name']; ?></td>
-                    <td class="left"><?php echo $value['ProductCategory']['category_name']; ?></td>
-                    <td class="left"><?php echo $value['Facility']['facility_name']; ?></td>
+                    <td class="center"><?php echo $value['Transfer']['transfer_id']; ?></td>
+                    <td class="left"><?php echo $value['InventoryItem']['product_id']; ?></td>
+                    <!--<td class="left"><?php echo $product_list; ?></td>-->
+                    <td class="center"><?php echo $value['InventoryItem']['uom_id']; ?></td>
+                    <td class="center"><?php echo $value['Transfer']['transfer_account']; ?></td> 
+                    <td class="left"><?php echo $value['User']['user_name']; ?></td>
                     <td class='actions'>
                     <?php echo $this->Html->link( 'แก้ไข', array('action' => 'edit', 
-                     $value['Product']['product_id']), array(
+                     $value['Transfer']['transfer_id']), array(
                         'class' => 'btn btn-info' )); ?>
-                
-                    <?php echo $this->Form->postLink( 'ลบ', array('action' => 'delete', 
-                     $value['Product']['product_id']), array(
-                            'confirm'=>'Are you sure you want to delete that Product?' ,
-                            'class' => 'btn btn-info' )); ?>
             </td>
                 </tr>
-            	<?php
+              <?php
                     endforeach;
                 endif;
                 ?>

@@ -14,6 +14,12 @@ class Transfer extends AppModel {
             'foreignKey' =>'inventory_item_id'
         )
     );
+     /*public $hasMany = array(
+        'Product' => array(
+            'className' => 'Product',
+            'foreignKey' => 'product_id'
+        )
+    );*/
  
     public $validate = array(		
 	);

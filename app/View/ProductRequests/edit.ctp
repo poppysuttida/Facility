@@ -4,11 +4,11 @@
     <li role="presentation">
       <?php echo $this->Html->link( 'หน้าแรก', array('controller'=>'pages','action' => 'home' )); ?></li>
     <li role="presentation">
-      <?php echo $this->Html->link( 'พัสดุ', array('controller'=>'Products',
+      <?php echo $this->Html->link( 'เบิกพัสดุ', array('controller'=>'Products',
       'action' => 'view' )); ?>
     </li>
     <li role="presentation" class="active">
-      <?php echo $this->Html->link( 'แก้ไขรายการพัสดุ', array('controller'=>'Products',
+      <?php echo $this->Html->link( 'แก้ไขรายการเบิกพัสดุ', array('controller'=>'Products',
       'action' => 'edit' )); ?>
     </li>
   </ul>
@@ -16,14 +16,14 @@
 <div class="row">
   <div class="col-xs-6 col-md-1"></div>
   <div class="col-xs-6 col-md-10">
-<H2><?php echo __('แก้ไขรายการพัสดุ');?></H2>
+<H2><?php echo __('แก้ไขรายการเบิกพัสดุ');?></H2>
 <br>
 <!--this is our add form, name the fields same as database column names -->
 <?php echo $this->Form->create('Product');?>
     <div class="form-group">
         <div class="col-md-12">
         <div class="col-sm-4" align = "right">
-            <?php echo __('รายการพัสดุ'); ?>
+            <?php echo __('รายการเบิกพัสดุ'); ?>
         </div>
         <div class="col-sm-4">
             <?php echo $this->Form->input('product_name', array('label' => false, 
