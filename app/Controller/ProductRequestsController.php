@@ -17,13 +17,7 @@ class ProductRequestsController extends AppController {
         ));*/
 
         $list_item = $this->Transfer->find('all', array(
-            'fields' => array('Transfer.transfer_id ',
-             'InventoryItem.product_id',
-             'InventoryItem.uom_id',
-             'Transfer.inventory_item_id',
-             'Transfer.transfer_account',
-             'Transfer.user_id'),
-            'recursive' => 0
+            'recursive' => 1
         ));
         if (!isset($list_item)) {
             exit;
@@ -33,7 +27,7 @@ class ProductRequestsController extends AppController {
             'Transfer' => array(
                 'limit' => 20,
                 'order' => array('DESC'),
-                'recursive' => 0
+                'recursive' => 2
             )
         );
 

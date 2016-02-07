@@ -4,7 +4,7 @@ class Transfer extends AppModel {
     public $useTable = 'TRANSFER';
     public $primaryKey = 'transfer_id';
     public $belongsTo = array(
-       
+
         'User' => array(
            'className' => 'User',
             'foreignKey' => 'user_id'
@@ -20,8 +20,8 @@ class Transfer extends AppModel {
             'foreignKey' => 'product_id'
         )
     );*/
- 
-    public $validate = array(		
+
+    public $validate = array(
 	);
 }
 ?>

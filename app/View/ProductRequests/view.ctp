@@ -29,20 +29,20 @@
     </tr>
 
       <tbody>
-            <?php 
+            <?php
                 if(isset($result)):
                     foreach ($result AS $key => $value):
                       // $product_list = isset($value['InventoryItem']['product_id'])?$value['Product']['product_name']: '';
                      ?>
                 <tr>
                     <td class="center"><?php echo $value['Transfer']['transfer_id']; ?></td>
-                    <td class="left"><?php echo $value['InventoryItem']['product_id']; ?></td>
+                    <td class="left"><?php echo $value['InventoryItem']['Product']['product_name']; ?></td>
                     <!--<td class="left"><?php echo $product_list; ?></td>-->
                     <td class="center"><?php echo $value['InventoryItem']['uom_id']; ?></td>
-                    <td class="center"><?php echo $value['Transfer']['transfer_account']; ?></td> 
+                    <td class="center"><?php echo $value['Transfer']['transfer_account']; ?></td>
                     <td class="left"><?php echo $value['User']['user_name']; ?></td>
                     <td class='actions'>
-                    <?php echo $this->Html->link( 'แก้ไข', array('action' => 'edit', 
+                    <?php echo $this->Html->link( 'แก้ไข', array('action' => 'edit',
                      $value['Transfer']['transfer_id']), array(
                         'class' => 'btn btn-info' )); ?>
             </td>
