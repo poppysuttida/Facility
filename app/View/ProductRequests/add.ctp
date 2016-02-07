@@ -101,7 +101,7 @@
                     'adt_tag' => 'input',
                     'type' => 'number',
                     'name' => 'descriptions',
-                    'id' => 'descriptions'
+                    'id' => 'descriptions',
                 )
             )
         )),

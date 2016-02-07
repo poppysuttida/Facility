@@ -39,9 +39,9 @@
                     <td class="left"><?php echo 
                     $value['Uom']['uom_name']; ?></td>
                     <td class="left"><?php echo 
-                    $value['InventoryItem']['quantity_total']; ?></td>
-                    <td class="left"><?php echo 
                     $value['InventoryItem']['quantity_account']; ?></td>
+                    <td class="left"><?php echo 
+                    $value['InventoryItem']['quantity_total']; ?></td>
                 </tr>
             	<?php
                     endforeach;

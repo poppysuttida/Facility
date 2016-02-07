@@ -25,7 +25,6 @@
         <th><?php echo __('หน่วยนับ');?></th>
         <th><?php echo __('จำนวนที่เบิกออก');?></th>
         <th><?php echo __('รายชื่อผู้เบิก');?></th>
-        <th><?php echo __('จัดการการเบิกพัสดุ');?></th>
     </tr>
 
       <tbody>
@@ -38,14 +37,9 @@
                     <td class="center"><?php echo $value['Transfer']['transfer_id']; ?></td>
                     <td class="left"><?php echo $value['InventoryItem']['Product']['product_name']; ?></td>
                     <!--<td class="left"><?php echo $product_list; ?></td>-->
-                    <td class="center"><?php echo $value['InventoryItem']['uom_id']; ?></td>
+                     <td class="left"><?php echo $value['InventoryItem']['Uom']['uom_name']; ?></td>
                     <td class="center"><?php echo $value['Transfer']['transfer_account']; ?></td>
                     <td class="left"><?php echo $value['User']['user_name']; ?></td>
-                    <td class='actions'>
-                    <?php echo $this->Html->link( 'แก้ไข', array('action' => 'edit',
-                     $value['Transfer']['transfer_id']), array(
-                        'class' => 'btn btn-info' )); ?>
-            </td>
                 </tr>
               <?php
                     endforeach;
