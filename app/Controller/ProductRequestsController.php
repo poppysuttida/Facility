@@ -7,8 +7,9 @@ class ProductRequestsController extends AppController {
 		//$this->set('products', $this->Product->find('all'));
 		$conditions = array();
         // find all Tranfer
-        /*$product_list = $this->InventoryItem->find('list', array(
-            'fields' => array('InventoryItem.product_id', 'Product.product_name'),
+        /*
+        $product_list = $this->InventoryItem->find('list', array(
+            'fields' => array('Product.product_id', 'Product.product_name'),
             'recursive' => -1
         ));
         $uom_list = $this->InventoryItem->find('list', array(

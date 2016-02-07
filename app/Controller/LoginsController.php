@@ -21,14 +21,17 @@ class LoginsController extends AppController {
 	        }
 			//echo '<pre>'; print_r($this->Session->read('user_login')); echo '</pre>';
 		}
+		//$this->Session->setFlash(__('ชื่อผู้ใช้และรหัสผ่านไม่ถูกต้อง กรุณาตรวจสอบข้อมูลอีกครั้ง'), 'notification_fail');
 
 		
 		//to retrieve all users, need just one line
 		//$this->set('logins', $this->Login->find('all'));
 	}
 	public function logout() {
-  			$this->Session->setFlash('Good-Bye');
-  			$this->redirect($this->Auth->logout());
+  		$this->Session->destroy();
+		$this->redirect(array('controller' => 'logins', 'action' => 'view'));
+		//$this->redirect('http://erp.liquor.or.th/liqour/');
+		//$this->redirect(Router::url( '/', true ).'../liquor/');
  }
 }
 ?>

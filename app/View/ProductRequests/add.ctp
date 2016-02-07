@@ -141,7 +141,7 @@
     <?php //echo $this->Html->link( 'เบิกพัสดุ', array( 'action' => '#' ) , array('class' => 'btn btn-success','id'=>'addItemData' )); ?>
     <!-- <input type="button" class="btn btn-success" id="addItemData" value="เบิกพัสดุ">  -->
 </div>
-</form>
+</form> 
     </body>
 
 </html>
