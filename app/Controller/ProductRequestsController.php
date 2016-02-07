@@ -43,6 +43,11 @@ class ProductRequestsController extends AppController {
 
 
 	public function add(){
+		 $product_list = $this->Product->find('list', array(
+            'fields' => array('Product.product_id', 'Product.product_name'),
+            'recursive' => -1
+        ));
+
 		if($this->request->is('post')){
 			// echo '<pre>';
 			// //print_r($this->request->data);
@@ -81,6 +86,7 @@ class ProductRequestsController extends AppController {
 			$this->Session->setFlash('เบิกพัสดุสำเร็จ');
 			//redirect to user list
 			$this->redirect(array('action' => 'view'));
+			$this->set(compact('product_list'));
 		}
 
 	/*

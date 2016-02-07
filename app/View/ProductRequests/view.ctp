@@ -3,7 +3,6 @@
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation">
       <?php echo $this->Html->link( 'หน้าแรก', array('controller'=>'pages','action' => 'home' )); ?></li>
-    ]
     <li role="presen\tation" class="active">
       <?php echo $this->Html->link( 'รายการขอเบิกพัสดุ', array('controller'=>'ProductRequests','action' => 'view' )); ?></li>
   </ul>
