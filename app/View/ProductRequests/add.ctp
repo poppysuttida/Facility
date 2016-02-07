@@ -43,7 +43,18 @@
         <title>Automatic Dynamic Table</title>
     </head>
     <body>
-        <form action="<?php echo Router::url(array('controller' => 'product_requests', 'action' => 'add')) ?>" method="post" id="productAddForm"><input type="button" id="addItemData" value="บันทึก" class="btn btn-primary">
+        <form action="<?php echo Router::url(array('controller' => 'product_requests', 'action' => 'add')) ?>" method="post" id="productAddForm">
+        <div class="row">
+        <div class="col-xs-6 col-md-1"></div>
+        <div class="col-xs-6 col-md-10">
+            <div align = "right">
+            <?php echo $this->Html->link( 'บันทึก', array( 'action' => 'add' ) , 
+            array('class' => 'btn btn-primary' , 'id' => 'addItemData')); ?>
+            </div> <br>
+        </div>
+        <div class="col-xs-6 col-md-1"></div>
+        </div>
+        <!-- <input type="button" id="addItemData" value="บันทึก" class="btn btn-primary"> -->
 
     <?php
     require_once('ADT.php');

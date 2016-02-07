@@ -48,8 +48,7 @@
                 'options' => $location_list));?>
         </div>
         <div class="col-sm-4">
-        <?php echo $this->Html->link( 'เพิ่มที่ตั้งคลังพัสดุ', array('controller'=>'Uoms',
-        'action' => 'add' )); ?>
+        <?php echo $this->Html->link( 'เพิ่มที่ตั้งคลังพัสดุ', array('controller'=>'Facilitylocations','action' => 'add' )); ?>
         </div>
         </div>
     </div><br><br><br>
