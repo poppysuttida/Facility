@@ -9,7 +9,6 @@
       <?php echo $this->Html->link( 'ขอเบิกพัสดุ', array('controller'=>'ProductRequests','action' => 'add' )); ?></li>
   </ul>
 </div>
-
     <head>
     <h2>ขอเบิกพัสดุ</h2>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -40,7 +39,7 @@
         table tr:last-child td:last-child { -moz-border-radius-bottomright:3px; -webkit-border-bottom-right-radius:3px; border-bottom-right-radius:3px; }
         table tr:hover td { background: #f2f2f2; background: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#f0f0f0)); background: -moz-linear-gradient(top,  #f2f2f2,  #f0f0f0); }
         </style>
-        <title>Automatic Dynamic Table</title>
+        <title></title>
     </head>
     <body>
         <form action="<?php echo Router::url(array('controller' => 'product_requests', 'action' => 'add')) ?>" method="post" id="productAddForm">
@@ -55,7 +54,7 @@
         <div class="col-xs-6 col-md-1"></div>
         </div>
         <!-- <input type="button" id="addItemData" value="บันทึก" class="btn btn-primary"> -->
-
+        
     <?php
     require_once('ADT.php');
     $ADT = new ADT();
