@@ -117,7 +117,12 @@ class ADT {
 
 			}else if($valRowTmp['adt_type']=='input'){
 				$iTmp++;
-				$DYscript .= '+\'<td>\'+adtval_list_tmp[key]['.$iTmp.']+\'</td>\n\'';
+
+				if(isset($valRowTmp['adt_attr']['0']['adt_tag']) && $valRowTmp['adt_attr']['0']['adt_tag'] == 'select'){
+					$DYscript .= '+\'<td>\'+select_val[adtval_list_tmp[key]['. ($iTmp-1) .']]+\'</td>\n\'';
+				}else{
+					$DYscript .= '+\'<td>\'+adtval_list_tmp[key]['. ($iTmp-1) .']+\'</td>\n\'';
+				}
 			}
 		}
 		$DYscript .= '+\'</tr>\n\');}else{$(\'#adt_list_items\').append(\'<tr id="rowIndex_\'+key+\'">\n\'';
@@ -157,14 +162,14 @@ class ADT {
 
 	private function createInput($iTmp, $valInputTmp){
 		$inputTmp = '';
-		if(in_array($valInputTmp['type'], array('text', 'hidden'))){//apply type 'text', 'hidden'
+		if(isset($valInputTmp['type']) && in_array($valInputTmp['type'], array('text', 'hidden'))){//apply type 'text', 'hidden'
 			$inputTmp .= '<'.$valInputTmp['adt_tag'].' ';
 			foreach($valInputTmp as $keyAttrTmp => $valAttrTmp){
 				$tmpADT = explode('_', $keyAttrTmp);
 				if($keyAttrTmp!='value' && $tmpADT[0]!='adt') $inputTmp .= $keyAttrTmp.'="'.str_replace('\'', '\\\'', $valAttrTmp).'" ';
 			}
 			$inputTmp .= 'value="\'+adtval_list_tmp[key]['.$iTmp.']+\'" />';
-		/*}else if($valInputTmp['adt_tag']=='select'){//apply type 'select'
+		}else if($valInputTmp['adt_tag']=='select'){//apply type 'select'
 			$inputTmp .= '<'.$valInputTmp['adt_tag'].' ';
 			foreach($valInputTmp as $keyAttrTmp => $valAttrTmp){
 				$tmpADT = explode('_', $keyAttrTmp);
@@ -176,7 +181,7 @@ class ADT {
 			foreach($valInputTmp['options'] as $keyOtpTmp => $valOtpTmp){
 				$inputTmp .= '<option value="'.$keyOtpTmp.'">'.$valOtpTmp.'</option>';
 			}
-			$inputTmp .= '</'.$valInputTmp['adt_tag'].'>\n';*/
+			$inputTmp .= '</'.$valInputTmp['adt_tag'].'>\n';
 		}else{//apply other tags
 			$inputTmp .= '<'.$valInputTmp['adt_tag'].' ';
 			foreach($valInputTmp as $keyAttrTmp => $valAttrTmp){

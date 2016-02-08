@@ -15,14 +15,14 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <script type="text/javascript" language="javascript" src="src/jquery-2.1.3.min.js"></script>
         <style>
-        body { margin: 20px; background-color: #F5F5F5; } 
+        body { margin: 20px; background-color: #F5F5F5; }
         body table { width: 80%; position: relative; margin: 0 auto !important; }
-        body h2 { font-family: Thoma, Times, serif !important; font-size: 24pt; font-weight: bold; } 
+        body h2 { font-family: Thoma, Times, serif !important; font-size: 24pt; font-weight: bold; }
         body pre { display: block; margin-top: 20px; padding: 9.5px; font-size: 13px; line-height: 20px; word-break: break-all; word-wrap: break-word; white-space: pre; white-space: pre-wrap; background-color: #FFFFFF; border: 1px solid #ccc; border: 1px solid rgba(0,0,0,0.15); -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; }
-        
+
         input { font: 14px/1.6em arial; width: 200px; height: 30px; padding: 3px; margin: 5px; border: 1px solid #ccc; -moz-border-radius: 5px; -webkit-border-radius:5px; -o-border-radius:5px; -ms-border-radius:5px; border-radius:5px; }
         input:focus { border: 1px solid #77B3D8; -moz-box-shadow: 0 0 7px #C8E0EF; -webkit-box-shadow: 0 0 7px #C8E0EF; -o-box-shadow: 0 0 7px #C8E0EF; -ms-box-shadow: 0 0 7px #C8E0EF; box-shadow: 0 0 7px #C8E0EF; }
-        
+
         table a:link { color: #666; font-weight: bold; text-decoration:none; }
         table a:visited { color: #999999; font-weight:bold; text-decoration:none; }
         table a:active, table a:hover { color: #bd5a35; text-decoration:underline; }
@@ -42,13 +42,16 @@
         </style>
         <title>Automatic Dynamic Table</title>
     </head>
+    <script>
+      var select_val = <?php echo json_encode($product_list) ?>;
+    </script>
     <body>
         <form action="<?php echo Router::url(array('controller' => 'product_requests', 'action' => 'add')) ?>" method="post" id="productAddForm">
         <div class="row">
         <div class="col-xs-6 col-md-1"></div>
         <div class="col-xs-6 col-md-10">
             <div align = "right">
-            <?php echo $this->Html->link( 'บันทึก', array( 'action' => 'add' ) , 
+            <?php echo $this->Html->link( 'บันทึก', array( 'action' => 'add' ) ,
             array('class' => 'btn btn-primary' , 'id' => 'addItemData')); ?>
             </div> <br>
         </div>
@@ -61,7 +64,19 @@
     $ADT = new ADT();
     $ADT->column = array(
         array('ลำดับ', array('adt_type' => 'no')),
-        array('รายการ', array(
+        array('ประเภท', array(
+            'adt_type' => 'input',
+            'adt_attr' => array(
+                array(
+                    'adt_request' => true,
+                    'adt_tag' => 'select',
+                    'name' => 'person_id',
+                    'id' => 'person_id',
+                    'options' => $product_list
+                )
+            )
+        )),
+        /*array('รายการ', array(
             'adt_type' => 'input',
             'adt_attr' => array(
                 array(
@@ -72,16 +87,27 @@
                     'id' => 'person_id'
                 ),
                 array(
-                    'adt_request' => true,
-                    'adt_tag' => 'input',
-                    'type' => 'text',
-                    'name' => 'fullname',
-                    'id' => 'fullname',
-                    'onblur' => '$(\'#person_id\').val(this.value);'
+                    //'adt_request' => true,
+                    // 'adt_tag' => 'select',
+                    // 'type' => 'text',
+                    // 'name' => 'fullname',
+                    // 'id' => 'fullname',
+                    //'onblur' => '$(\'#person_id\').val(this.value);',
+                    //'options' => array('พนักงาน', 'ลูกค้า')
+                    'adt_type' => 'input',
+                    'adt_attr' => array(
+                        array(
+                            'adt_request' => false,
+                            'adt_tag' => 'select',
+                            'name' => 'position',
+                            'id' => 'position',
+                            'options' => array('พนักงาน', 'ลูกค้า')
+                        )
+                    )
                 )
             )
-        )),
-        array('หน่วยนับ', array(
+        )),*/
+        /*array('หน่วยนับ', array(
             'adt_type' => 'input',
             'adt_attr' => array(
                 array(
@@ -92,7 +118,7 @@
                     'id' => 'position'
                 )
             )
-        )),
+        )),*/
         /*array('ประเภท', array(
             'adt_type' => 'input',
             'adt_attr' => array(
@@ -144,7 +170,7 @@
         )),
     );
     $ADT->draw();
-    
+
     //echo '<h2>DEBUG VALUE</h2><pre>'; print_r($ADT->column); echo '</pre>';//DEBUGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
     ?>
     <br>
@@ -152,7 +178,7 @@
     <?php //echo $this->Html->link( 'เบิกพัสดุ', array( 'action' => '#' ) , array('class' => 'btn btn-success','id'=>'addItemData' )); ?>
     <!-- <input type="button" class="btn btn-success" id="addItemData" value="เบิกพัสดุ">  -->
 </div>
-</form> 
+</form>
     </body>
 
 </html>
