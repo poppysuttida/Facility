@@ -63,7 +63,7 @@
     $ADT = new ADT();
     $ADT->column = array(
         array('ลำดับ', array('adt_type' => 'no')),
-        array('ประเภท', array(
+        array('รายการ', array(
             'adt_type' => 'input',
             'adt_attr' => array(
                 array(
@@ -106,15 +106,15 @@
                 )
             )
         )),*/
-        /*array('หน่วยนับ', array(
+       /* array('หน่วยนับ', array(
             'adt_type' => 'input',
             'adt_attr' => array(
                 array(
                     'adt_request' => false,
-                    'adt_tag' => 'input',
-                    'type' => 'text',
+                    'adt_tag' => 'select',
                     'name' => 'position',
-                    'id' => 'position'
+                    'id' => 'position',
+                    'options' => $uom_list
                 )
             )
         )),*/

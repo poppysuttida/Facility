@@ -23,19 +23,29 @@
 
 					</small>
 				</a>
-				<a href="" class="btn btn-danger" style="float:right">ออกจากระบบ</a>
+				<!-- <a href="" class="btn btn-danger" style="float:right">ออกจากระบบ</a> -->
 				<a href="#" class="navbar-brand" style="float:right">
 					<small >
 						<?php 
 
 							if($this->Session->read('user_login.user_name') != ""){
 								echo 'สวัสดีคุณ '.$this->Session->read('user_login.user_name');
-
 							}
 							?>
 					</small>
 				</a>
-				
+				<div class="row">
+       			 <div class="col-xs-6 col-md-12">
+            <div align = "right">
+            <?php 
+
+							if($this->Session->read('user_login.user_name') != ""){
+								echo $this->Html->link( 'ออกจากระบบ', array('controller' => 'logins','action' => 'logout' ) ,array('class' => 'btn btn-primary'));
+							}
+							?>
+            </div>
+        </div>
+        </div>
 			</div>	
 		</div><!-- /.navbar-container -->
 	</div>

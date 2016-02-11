@@ -42,6 +42,12 @@ class ProductRequestsController extends AppController {
             'fields' => array('InventoryItem.inventory_item_id', 'Product.product_name'),
             'recursive' => 2
         ));
+
+		 $uom_list = $this->Uom->find('list', array(
+            'fields' => array('Uom.uom_id', 'Uom.uom_name'),
+            'recursive' => -1
+        ));
+
 		if($this->request->is('post')){
 			// echo '<pre>';
 			// //print_r($this->request->data);
@@ -82,7 +88,7 @@ class ProductRequestsController extends AppController {
 			$this->redirect(array('action' => 'view'));
 
 		}
-		$this->set(compact('product_list'));
+		$this->set(compact('product_list','uom_list'));
 	/*
 		// find list product
         $product_list = $this->Product->find('list', array(
